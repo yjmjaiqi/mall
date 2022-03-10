@@ -5,7 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var ejs = require("ejs")
 
-var indexRouter = require('./routes/index');
+var Dapp_get = require('./routes/Dapp_get');
+var Back_Management = require('./routes/Back_Management');
 
 var app = express();
 
@@ -21,7 +22,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/index', indexRouter);
+app.use('/', Dapp_get);
+app.use('/management', Back_Management);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
@@ -36,7 +38,9 @@ app.use('/index', indexRouter);
 
 //   // render the error page
 //   res.status(err.status || 500);
-//   res.render('error');
+//   res.render('info',{
+//       content:"错误警告"
+//   });
 // });
 
 module.exports = app;
