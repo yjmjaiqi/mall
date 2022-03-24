@@ -20,9 +20,9 @@
 					<ul>
 						<!-- <li><a href="management_About" id="targeted">后台首页</a></li><br> -->
 						<li><a href="/management">上架商品</a></li><br>
-						<li><a href="/management/history">历史交易记录</a></li><br>
-						<li><a href="/management/bill">电子发票凭证</a></li><br>
-						<li><a href="/management/user">个人信息</a></li><br>
+						<li><a href="/history">历史交易记录</a></li><br>
+						<li><a href="/bill">电子发票凭证</a></li><br>
+						<li><a href="/user">个人信息</a></li><br>
 						<li><a href="/about">退出</a></li>
 						
 					</ul>
@@ -35,12 +35,12 @@
 						<li><a href="#">f</a></li>
 						<li><a href="#">n</a></li>
 					</ul>
-					<div style="height: 200px;"></div>
-					<form class="form-horizontal" role="form">
+					<div style="height: 100px;"></div>
+					<form action="/management" method="post" enctype="multipart/form-data" class="form-horizontal">
 						<div class="form-group">
 							<label for="lastname" class="col-sm-2 control-label">商品类型</label>
 							<div class="col-sm-10">
-							  <select class="form-control" id="val">
+							  <select class="form-control" id="val" name="category">
 								  <option>请选择商品所属类型</option>
 								  <option>日常</option>
 								  <option>书籍</option>
@@ -50,40 +50,41 @@
 							  </select>
 							</div>
 						</div>
+						<input type="text" hidden="true" id="addr">
 						<div class="form-group">
 						  <label for="firstname" class="col-sm-2 control-label">商品名字</label>
 						  <div class="col-sm-10">
-							<input type="text" class="form-control" id="firstname" placeholder="请输入商品名字"  autocomplete="off">
+							<input type="text" name="productName" class="form-control" id="firstname" placeholder="请输入商品名字"  autocomplete="off">
 						  </div>
 						</div>
 					    <div class="form-group">
 							<label for="firstname" class="col-sm-2 control-label">商品详情</label>
 							<div class="col-sm-10">
-							  <input type="text" class="form-control" id="firstname" placeholder="请输入商品详情"  autocomplete="off">
+							  <input type="text" name="information" class="form-control" id="firstname" placeholder="请输入商品详情"  autocomplete="off">
 							</div>
 						  </div>
 						<div class="form-group">
 							<label for="firstname" class="col-sm-2 control-label">商品图片</label>
 							<div class="col-sm-10">
-							  <input type="file" class="form-control" id="firstname" placeholder="上传商品图片"  autocomplete="off">
+							  <input type="file" name="file" class="form-control" id="firstname" placeholder="上传商品图片"  autocomplete="off">
 							</div>
 						  </div>
 						<div class="form-group">
 							<label for="firstname" class="col-sm-2 control-label">商品价格</label>
 							<div class="col-sm-10">
-							  <input type="text" class="form-control" id="firstname" placeholder="请输入商品价格"  autocomplete="off">
+							  <input type="text" name="price" class="form-control" id="firstname" placeholder="请输入商品价格"  autocomplete="off">
 							</div>
 						</div>
 						<div class="form-group" style="display: none;">
 							<label for="firstname" class="col-sm-2 control-label">商品出售者</label>
 							<div class="col-sm-10">
-							  <input type="text" class="form-control" id="firstname" placeholder="请输入商品出售者"  autocomplete="off">
+							  <input type="text" name="seller"  class="form-control" id="firstname" placeholder="请输入商品出售者"  autocomplete="off">
 							</div>
 						</div>
 						<div class="form-group" style="display: none;">
 							<label for="firstname" class="col-sm-2 control-label">商品上架时间</label>
 							<div class="col-sm-10">
-							  <input type="text" class="form-control" id="firstname" placeholder="商品上架时间"  autocomplete="off">
+							  <input type="text" name="launch_time" class="form-control" id="firstname" placeholder="商品上架时间"  autocomplete="off">
 							</div>
 						</div>
 						<div class="form-group">
@@ -112,12 +113,12 @@
 	</div>
 <div style="text-align:center;clear:both">
 </div>	
-<script>
+<!-- <script>
 	function putway(){
 		va = document.getElementById("val").value
 	    console.log(va)
 		alert(va)
 	}
-</script>
+</script> -->
 </body>
 </html>

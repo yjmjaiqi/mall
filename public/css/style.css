@@ -210,7 +210,7 @@ h1,h2,h3,h4,h5,h6,p{
 }
 /*----*/
 .header-bottom-bottom{
-	border-top:5px solid #ff9900;
+	border-top:10px solid #ff9900;
 }
 .search {
 	margin: 0.8em 0.8em 0 0em;	
@@ -247,18 +247,6 @@ h1,h2,h3,h4,h5,h6,p{
 	font-size:1.2em;
 	color:#000;	
 	font-weight:500;
-}
-.search input[type="submit"] {	
-	width: 60px;
-	height: 46px;
-	background: #ff9900 url(../images/img-sprite.png) -55px 6px no-repeat;
-	padding: 0px 10px;
-	border: none;
-	cursor: pointer;
-	position: absolute;
-	outline: none;
-	top: 0;
-	right: 0;
 }
 /*----*/
 .top-nav ul li{

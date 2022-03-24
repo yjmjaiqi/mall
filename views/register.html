@@ -30,31 +30,30 @@
 				</div>
 				<div class="mui-input-row">
 					<label>注册凭证</label>
-					<input type="text" name="address"  autocomplete="off" class="mui-input-clear" placeholder="地址" required>
+					<input type="text" hidden="true" name="web3" id="address" autocomplete="off" class="mui-input-clear" placeholder="地址" required>
+					<input type="text" name="address" id="iden"  autocomplete="off" class="mui-input-clear" placeholder="地址" required>
 				</div>
-		    <div class="mui-input-row">
-		        <label>用户名：</label>
-		        <input type="text" name="username"  autocomplete="off" class="mui-input-clear" pattern="[\u4e00-\u9fa5]{1,}" placeholder="请输入中文用户名" required>
-		    </div>
-		    <div class="mui-input-row">
-		        <label>密码：</label>
-		        <input type="password" name="password"  autocomplete="off"  pattern="\w{6,18}" class="mui-input-clear" placeholder="请输入密码6~18" required>
-		    </div>
-        <div class="mui-input-row">
-          <label>确认密码：</label>
-          <input type="password" name="repassword"  autocomplete="off" pattern="\w{6,18}" class="mui-input-clear" placeholder="请输入密码6~18" required>
-        </div>
-		    <button type="submit" class="mui-btn-block" id="loginBtn">注册</button>
-		    <div class="myfooter"><p><a style="color: white;" href="login">登录</a></p><p><a style="color: white;" href="AlterUser">忘记密码?</a></p></div>
-		</form>
-
+		        <div class="mui-input-row">
+		            <label>用户名：</label>
+		            <input type="text" name="username" id="username"  autocomplete="off" class="mui-input-clear" pattern="[\u4e00-\u9fa5]{1,}" placeholder="请输入中文用户名" required>
+		        </div>
+		        <div class="mui-input-row">
+		            <label>密码：</label>
+		            <input type="password" name="password" id="password"  autocomplete="off"  pattern="\w{6,18}" class="mui-input-clear" placeholder="请输入密码6~18" required>
+		        </div>
+		        <button type="submit" class="mui-btn-block" id="loginBtn">注册</button>
+		        <div class="myfooter"><p><a style="color: white;" href="login">登录</a></p><p><a style="color: white;" href="AlterUser">忘记密码?</a></p></div>
+		    </form>
 	<!-- <script type="text/javascript" src="/js/login.js" ></script> -->
 	</body>
-		<script src="/js/three.min.js"></script>
-		<script src="/js/projector.js"></script>
-		<script src="/js/canvas-renderer.js"></script>
-		<script src="/js/3d-lines-animation.js"></script>
-		<script src="/js/jquery.1.7.1.min.js" type="text/javascript"></script>
-		<script src="/js/color.js"></script>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/web3.min.js"></script>
+    <script type="text/javascript" src="/js/web3/web3.js"></script>
+	<script src="/js/three.min.js"></script>
+	<script src="/js/projector.js"></script>
+	<script src="/js/canvas-renderer.js"></script>
+	<script src="/js/3d-lines-animation.js"></script>
+	<script src="/js/jquery.1.7.1.min.js" type="text/javascript"></script>
+	<script src="/js/color.js"></script>
 </html>
 

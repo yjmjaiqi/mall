@@ -13,7 +13,9 @@ body {
     clear: both;
 }
 .admin-panel {
-    width: 990px;
+    /* width: 990px;
+     */
+    width: 90%;
     margin: 50px auto;
 }
 /*slidebar侧边栏*/

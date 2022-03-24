@@ -6,7 +6,7 @@ var abi = [
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "_category",
+				"name": "_class",
 				"type": "string"
 			},
 			{
@@ -31,11 +31,34 @@ var abi = [
 			},
 			{
 				"internalType": "string",
+				"name": "_starttime",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
 				"name": "_limittime",
 				"type": "string"
 			}
 		],
 		"name": "addProduct",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_username",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_password",
+				"type": "string"
+			}
+		],
+		"name": "adduser",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"
@@ -54,69 +77,42 @@ var abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
+		"inputs": [],
+		"name": "userid",
+		"outputs": [
 			{
 				"internalType": "uint256",
 				"name": "",
 				"type": "uint256"
 			}
 		],
-		"name": "stores",
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "usermap",
 		"outputs": [
 			{
-				"internalType": "uint256",
-				"name": "id",
-				"type": "uint256"
-			},
-			{
 				"internalType": "string",
-				"name": "category",
+				"name": "username",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "name",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "describe",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "price",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "link",
-				"type": "string"
-			},
-			{
-				"internalType": "uint256",
-				"name": "starttime",
-				"type": "uint256"
-			},
-			{
-				"internalType": "string",
-				"name": "limittime",
+				"name": "password",
 				"type": "string"
 			},
 			{
 				"internalType": "address",
-				"name": "user",
+				"name": "useraddress",
 				"type": "address"
-			},
-			{
-				"internalType": "enum Supermarket.productStatus",
-				"name": "status",
-				"type": "uint8"
 			}
 		],
 		"stateMutability": "view",
@@ -130,7 +126,26 @@ web3.eth.getAccounts().then(function (accouts) {
     console.log(User_Accous);
 });
 
-var myContract = new web3.eth.Contract(abi, '0xa68570267FCA212f94ae6b0355A12Af1B2399ECb');
+var myContract = new web3.eth.Contract(abi, '0x85A5f851829f83E6b8b9833Bcf88A9563fa45ed6');
+//  添加用户（注册）
+// var a = 12345
+// console.log(a.length)
+$("#loginBtn").click(function(){
+	document.getElementById("address").value = User_Accous[0]
+	console.log("注册凭证",document.getElementById("address").value)
+	address = document.getElementById("iden").value
+	username = document.getElementById("username").value
+	password = document.getElementById("password").value
+	console.log(typeof(password),password.length,User_Accous[0],address)
+	if(password.length<6 || address != User_Accous[0]){
+		return
+	}else{
+		myContract.methods.adduser(username,password).send({from:User_Accous[0]}).then(
+			function (receipte) {
+				console.log("receipt",receipte);
+			}
+		)}
+});
 //商品信息
 $(".stores").click(function(){
 	myContract.methods.stores(User_Accous[0],1).call().then(
