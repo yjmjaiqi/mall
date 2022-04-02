@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no"/>
+<link href="/css/reset.css" rel="stylesheet" type="text/css">
+<link href="/css/discounts.css" rel="stylesheet" type="text/css">
+</head>
+<title>我的商品</title>
+<body>
+<div class="near-box">
+      <!--头部开始-->
+	  <div class="header">
+	  	 <a href="usercenter" class="left"></a>
+	  	 我的商品
+	  </div>
+	  <!--头部结束-->
+      <div class="discounts-bigbox">
+		  <div class="discounts-banner1"><img src="/images/myshop.webp" alt=""></div>
+		  <% for(var shop of myshop){ %>
+		  <div class="discounts-box1">
+			<span class="d-box1-img1"><img src="<%= shop.img_link %>"></span>
+			<div class="discounts-box2">
+				<span style="font-size: large;" class="d-box2-text1"><%= shop.productName %>&nbsp;&nbsp;<span>
+                    上架时间-<%= shop.launch_time %></span></span>
+                <!-- <span class="d-box2-text1">上架时间<%= shop.launch_time %></span> -->
+				<span class="d-box2-text2">￥<%= shop.price %><i></i></span>
+				<input type="text" hidden="true" id="id" value="<%= shop.id %>">
+				<button class="d-box2-btn"><a href="soldout/<%= shop.id %>" id="soldout">下架商品</a></button>
+			</div>
+	      </div>
+		  <% } %>
+		  <!-- <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/fruits-img1.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">香蕉</span>
+		  	 	<span class="d-box2-text2">￥5.9/斤 <i></i></span>
+		  	 	<button class="d-box2-btn">加入购物车</button>
+		  	 </div>
+		  </div>
+
+		  <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/fruits-img2.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">猕猴桃</span>
+		  	 	<span class="d-box2-text2">￥10.9/斤 <i></i></span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		  <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/fruits-img3.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">脐橙</span>
+		  	 	<span class="d-box2-text2">￥10.9/斤 <i></i></span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		 
+
+          <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/fruits-img4.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">荔枝</span>
+		  	 	<span class="d-box2-text2">￥10.9/斤 <i></i></span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		  <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/fruits-img5.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">野草莓</span>
+		  	 	<span class="d-box2-text2">￥10.9/斤 <i></i></span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		  <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/fruits-img6.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">樱桃</span>
+		  	 	<span class="d-box2-text2">￥10.9/斤 <i></i></span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+          
+         
+
+          <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/fruits-img7.png" alt=""></i></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">枇杷</span>
+		  	 	<span class="d-box2-text2">￥10.9/斤 <i></i></span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		  <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/fruits-img8.png" alt=""></i></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">皇冠梨</span>
+		  	 	<span class="d-box2-text2">￥10.9/斤 <i></i></span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>-->
+
+      </div> 
+      <!--bigbox结束-->
+      
+</div>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/web3.min.js"></script>
+<script type="text/javascript" src="/js/web3/web3.js"></script>
+<script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
+<script src="/js/jquery.1.7.1.min.js" type="text/javascript"></script>
+</body>
+</html>

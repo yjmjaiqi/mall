@@ -2,51 +2,44 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title></title>
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<link rel="stylesheet" type="text/css" href="/css/mui.min.css"/>	
-		<link rel="stylesheet" type="text/css" href="/css/login.css"/>
-		<link rel="stylesheet" type="text/css" href="/css/index.css"/>
+		<title>修改账户</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+		<link rel="stylesheet" type="text/css" href="/css/style0.css">
+		<script src="/js/flexible.js" type="text/javascript" ></script>
+		<script src="/js/zepto.min.js" type="text/javascript" ></script>
 	</head>
 	<body>
-
-		
-			<div class="canvas-wrap">
-			<div id="canvas" class="gradient"></div>
+		<!--头像-->
+		<div class="head">
+				<img src="/images/01.jpg" style="vertical-align: middle;max-width: 111%;margin-top: -1px;margin-left: -3px;max-height: 104%;">
+		</div>
+		<!--忘记密码-->
+		<form action="/AlterUser" method="post">
+            <div class="item">
+				<input type="text" hidden="true" name="web3" id="address"  placeholder="请输入MetaMask账户地址" autocomplete="off" class="vcode" required>
+				<input type="text" name="address" id="iden" placeholder="请输入注册地址" autocomplete="off" class="vcode" required>
 			</div>
-			
-		<form class="mui-input-group" action="/AlterUser" method="post">
-			<div class="mui-text-center">
-				欢迎来到新兴贸易!
+			<div class="item">
+				<input type="text" name="username" id="username" maxlength="11" placeholder="请输入内部中文名" autocomplete="off" class="name" pattern="[\u4e00-\u9fa5]{1,}" required>
 			</div>
-			<div class="mui-text-center">
-				修改账号密码
+			<div class="item">
+				<input type="password" name="password" id="password" placeholder="请输入数字密码6~18" autocomplete="off" class="password" pattern="\w{6,18}" required>
 			</div>
-			<div class="mui-input-row">
-				<label>账户凭证</label>
-				<input type="text" name="address"  autocomplete="off" class="mui-input-clear" placeholder="注册地址凭证" required>
+			<div class="submit"><button id="AlterUser">修&nbsp;改</button></div>
+			<div>
+				<p><a href="login">登录</a></p>
 			</div>
-		    <div class="mui-input-row">
-		        <label>用户名：</label>
-		        <input type="text" name="username"  autocomplete="off" class="mui-input-clear" placeholder="请输入用户名" required>
-		    </div>
-		    <div class="mui-input-row">
-		        <label>密码：</label>
-		        <input type="password" name="password"  autocomplete="off"  pattern="\w{6,18}" class="mui-input-clear" placeholder="请输入密码6~18" required>
-		    </div>
-		    <button type="submit" class="mui-btn-block" id="loginBtn">修改</button>
-		    <div class="myfooter"><p><a style="color: white;" href="login">登录</a></p><p><a style="color: white;" href="register">注册</a></p></div>
+			<div>
+				<p><a href="register">注册</a></p>
+			</div>
 		</form>
-
+		<div class="footer">
+			<img src="/images/logo.png">
+			<p>登录使用就表示同意用户协议<a href="javascript:;">条款</a>和<a href="javascript:;">隐私</a>政策</p>
+		</div>
 	</body>
-		<script src="/js/three.min.js"></script>
-		<script src="/js/projector.js"></script>
-		<script src="/js/canvas-renderer.js"></script>
-		<script src="/js/3d-lines-animation.js"></script>
-		<script src="/js/jquery.1.7.1.min.js" type="text/javascript"></script>
-		<script src="/js/color.js"></script>
-</html>
-
-
-</body>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/web3.min.js"></script>
+    <script type="text/javascript" src="/js/web3/web3.js"></script>
+	<script src="/js/jquery.1.7.1.min.js" type="text/javascript"></script>
 </html>

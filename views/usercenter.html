@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>个人中心</title>
+        <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport"/>
+        <meta content="yes" name="apple-mobile-web-app-capable"/>
+        <meta content="black" name="apple-mobile-web-app-status-bar-style"/>
+        <meta content="telephone=no" name="format-detection"/>
+        <link href="/css/style.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+        
+    </head>
+    
+    <body>
+        
+        <section class="jq22-flexView">
+
+            <section class="jq22-scrollView">
+                <div class="jq22-my-head">
+                    <div class="jq22-my-color">
+                        <div class="jq22-flex">
+                            <% for(let user of users){ %>
+                                <div class="jq22-flex-box">
+                                    <h1 style="font-size: 13px;"><%= user.address %></h1>
+                                    <h2><%= user.username %></h2>
+                                </div>
+                            <% } %>
+                            <div class="jq22-my-user">
+                                <img src="/images/a.jpg" alt="">
+                                <!-- <input type="file" name="file"> -->
+                            </div>
+                        </div>
+                        <div class="jq22-flex jq22-flex-color">
+                           
+                        </div>
+                    </div>
+                </div>
+                <div class="jq22-course-list">
+                    <a href="indent" class="jq22-flex ">
+                        <div class="jq22-cou-img">
+                            <img src="/images/icon-fl-001.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>我的订单</p>
+                        </div>
+                        <div class="jq22-ren-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="jq22-flex ">
+                        <div class="jq22-cou-img">
+                            <img src="/images/icon-fl-002.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>我的余额</p>
+                        </div>
+                        <div class="jq22-ren-arrow">
+                            <span style="color:#feaa50">900000</span>
+                        </div>
+                    </a>
+                    <a href="productadd" class="jq22-flex ">
+                        <div class="jq22-cou-img">
+                            <img src="/images/icon-fl-003.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>上传商品</p>
+                        </div>
+                        <div class="jq22-ren-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                    <a href="bill" class="jq22-flex ">
+                        <div class="jq22-cou-img">
+                            <img src="/images/icon-fl-004.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>电子发票</p>
+                        </div>
+                        <div class="jq22-ren-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                    <a href="javascript:;" class="jq22-flex ">
+                        <div class="jq22-cou-img">
+                            <img src="/images/icon-fl-005.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>我的发布</p>
+                        </div>
+                        <div class="jq22-ren-arrow">
+                            <span>138656565852</span>
+                        </div>
+                    </a>
+                    <a href="history" class="jq22-flex ">
+                        <div class="jq22-cou-img">
+                            <img src="/images/icon-fl-006.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>历史交易记录</p>
+                        </div>
+                        <div class="jq22-ren-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                    <a href="myshop" class="jq22-flex ">
+                        <div class="jq22-cou-img">
+                            <img src="/images/people2.png" alt="">
+                        </div>
+                        <div class="jq22-flex-box">
+                            <p>我的商品</p>
+                        </div>
+                        <div class="jq22-ren-arrow">
+                            <span></span>
+                        </div>
+                    </a>
+                    <!-- <center>历史交易记录&nbsp;&nbsp;<a href="history">（点击查看更多）</a></center>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>商品类型</th>
+                                <th>商品名称</th>
+                                <th>商品图片</th>
+                                <th>交易状态</th>
+                                <th>交易数量</th>
+                                <th>价格</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>食物</td>
+                            <td>草莓</td>
+                            <td>
+                                <img style="width:50px" src="/img/fruits-img1.png">
+                            </td>
+                            <td>售出</td>
+                            <td>5</td>
+                            <td>20元</td>
+                            </tr>
+                            <tr>
+                            <td>衣物</td>
+                            <td>牛仔裤</td>
+                            <td>
+                                <img style="width:50px" src="/img/nut-img1.png">
+                            </td>
+                            <td>售出</td>
+                            <td>5</td>
+                            <td>20元</td>
+                            </tr>
+                        </tr>
+                        <tr>
+                        <td>衣物</td>
+                        <td>牛仔裤</td>
+                        <td>
+                            <img style="width:50px" src="/img/nut-img1.png">
+                        </td>
+                        <td>售出</td>
+                        <td>5</td>
+                        <td>20元</td>
+                        </tr>
+                            </tbody>
+                    </table> -->
+                </div>
+            </section>
+            <footer class="jq22-footer jq22-footer-fixed">
+                <a href="index" class="jq22-tabBar-item ">
+                    <span class="jq22-tabBar-item-icon">
+                        <i class="icon icon-loan"></i>
+                    </span>
+                    <span class="jq22-tabBar-item-text">首页</span>
+                </a>
+                <a href="cart" class="jq22-tabBar-item ">
+                    <span class="jq22-tabBar-item-icon">
+                        <i class="icon icon-ions"></i>
+                    </span>
+                    <span class="jq22-tabBar-item-text">购物车</span>
+                </a>
+            </footer>
+        </section>
+    </body>
+</html>

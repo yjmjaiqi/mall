@@ -7,7 +7,7 @@ const session = require('express-session');
 var ejs = require("ejs")
 
 var Dapp_get = require('./routes/Dapp_get');
-var Back_Management = require('./routes/Back_Management');
+// var Back_Management = require('./routes/Back_Management');
 
 var app = express();
 
@@ -32,7 +32,7 @@ app.use(session({
     saveUninitialized:true//强制保存初始化session
   }))
 app.use('/', Dapp_get);
-app.use('/management', Back_Management);
+// app.use('/management', Back_Management);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

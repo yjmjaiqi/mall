@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>上架商品</title>
+  <link rel="stylesheet" type="text/css" href="/css/style2.css"/>
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+</head>
+<body>
+  <header class="upload-hedaer">
+    <a href="usercenter" class="upload-fh"></a>
+    <div>上架商品</div>
+    <!-- <div>···</div> -->
+  </header>
+  <form role="form" action="/productadd" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">商品类别</label>
+      <select class="form-control" name="categories" id="category">
+        <option>请选择商品类别</option>
+        <option>水果</option>
+        <option>家具</option>
+        <option>坚果</option>
+        <option>零食</option>
+      </select>
+    <div>
+    <div class="form-group">
+      <label for="name">商品名称</label>
+      <input type="text" name="productname" class="form-control" id="productname" placeholder="请输入商品名称">
+    </div>
+    <div class="form-group">
+      <label for="name">商品详情</label>
+      <textarea class="form-control information" name="information" id="information" rows="3" placeholder="请输入商品简介"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="name">商品价格</label>
+      <input type="text" name="price" class="form-control" id="price" placeholder="请输入商品价格">
+    </div>
+    <div class="form-group">
+      <label for="name">商品上架时间</label>
+      <input type="date" name="start_time" class="form-control" id="start_time" placeholder="请输入商品上架限时(单位/天)">
+    </div>
+    <div class="form-group">
+      <label for="name">商品上架限时</label>
+      <input type="date" name="end_time" class="form-control" id="end_time" placeholder="请输入商品上架限时(单位/天)">
+    </div>
+    <div class="form-group">
+      <label for="inputfile">上传商品图片</label>
+      <input type="file" name="file" id="inputfile">
+    </div>
+    <button type="submit" class="btn btn-default">提交</button>
+  </form>
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script type="text/javascript" src="/js/web3.min.js"></script>
+  <script type="text/javascript" src="/js/web3/web3.js"></script>
+  <script src="/js/index.js"></script>
+</body>
+</html>

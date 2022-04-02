@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="format-detection" content="telephone=no"/>
+<link href="/css/reset.css" rel="stylesheet" type="text/css">
+<link href="/css/discounts.css" rel="stylesheet" type="text/css">
+</head>
+<title>优选零食</title>
+<body>
+<div class="near-box">
+      <!--头部开始-->
+	  <div class="header">
+	  	 <a href="index" class="left"></a>
+	  	 零食
+	  </div>
+	  <!--头部结束-->
+      <div class="discounts-bigbox">
+		  <div class="discounts-banner1"><img src="/img/discounts-img4.jpg" alt=""></div>
+		  <% for(var snack of snacks){ %>
+			<div class="discounts-box1">
+			  <span class="d-box1-img1"><img src="<%= snack.img_link %>"></span>
+			  <div class="discounts-box2">
+				  <span class="d-box2-text1"><%= snack.productName %></span>
+				  <span class="d-box2-text2">￥<%= snack.price %>/包<i></i></span>
+				  <button class="d-box2-btn">立即购买</button>
+			  </div>
+			</div>
+			<% } %>
+		  <!-- <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/snack-img1.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">旺仔qq糖</span>
+		  	 	<span class="d-box2-text2">￥0.9/包</span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		  <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/snack-img2.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">海苔卷</span>
+		  	 	<span class="d-box2-text2">￥10.9/盒</span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		  <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/snack-img3.png"alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">手工辣条</span>
+		  	 	<span class="d-box2-text2">￥10.9/盒</span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		 
+
+          <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/snack-img4.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">葱油香酥饼</span>
+		  	 	<span class="d-box2-text2">￥10.9/盒</span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		  <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/snack-img5.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">果汁组合</span>
+		  	 	<span class="d-box2-text2">￥2.9/瓶</span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		  <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/snack-img6.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">日式压缩饼干</span>
+		  	 	<span class="d-box2-text2">￥10.9/盒</span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+          
+         
+
+          <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/snack-img7.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">豆干</span>
+		  	 	<span class="d-box2-text2">￥0.9/包</span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div>
+
+		  <div class="discounts-box1">
+		  	 <span class="d-box1-img1"><img src="/img/snack-img8.png" alt=""></span>
+		  	 <div class="discounts-box2">
+		  	 	<span class="d-box2-text1">大白兔奶糖</span>
+		  	 	<span class="d-box2-text2">￥30.9/斤</span>
+		  	 	<button class="d-box2-btn">立即购买</button>
+		  	 </div>
+		  </div> -->
+
+      </div>
+      <!--bigbox结束-->
+      <div class="discounts-bottom">
+		<form action="/search_shacks" method="post">
+			<center>
+				<input type="text" name="productname" style="text-align: center;width:80%;height:30px;background-color:rgb(231, 225, 225);" placeholder="输入商品名">
+				<input type="submit" value="搜索" style="text-align: center;width:10%; height:30px;">
+			</center>
+			<!-- <a href="search" >
+				<span class="index-top-img1"><img src="/images/search3.png" alt=""></span>搜索
+				<span class="index-top-text1">搜索</span>
+			</a> -->
+			
+		</form>
+      	 <!-- <span class="d-bottom-text1"></span>
+      	 <a href="" class="d-bottom-text2">搜索</a> -->
+      </div>
+      
+</div>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
+</body>
+</html>
