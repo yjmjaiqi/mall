@@ -1,250 +1,244 @@
-<!DOCTYPE >
+<!DOCTYPE>
 <html>
+
 <head>
-<meta http-equiv="content-type" content="text/; charset=UTF-8"/>
-<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="format-detection" content="telephone=no"/>
-<link href="/css/reset.css" rel="stylesheet" type="text/css">
-<link href="/css/index.css" rel="stylesheet" type="text/css">
+	<meta http-equiv="content-type" content="text/; charset=UTF-8" />
+	<meta name="viewport" id="viewport"
+		content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="shortcut icon" href="/images/icon-fl-002.png" type="image">
+	<link href="/css/reset.css" rel="stylesheet" type="text/css">
+	<link href="/css/index.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	
 </head>
 <title>新兴贸易</title>
+
 <body>
-<div class="near-box">
-      <!--头部开始-->
-	  <% for(let pro of product){ %>
-		<input type="text" hidden="true" id="id" value=<%= pro.id %>>
-		<input type="text" hidden="true" id="end_time" value=<%= pro.end_time %>>
-	  <% } %>
-	  <div class="yx-index-top">
-	  	 <!-- <div class="index-top-box1">
+	<div class="near-box">
+		<!--头部开始-->
+		<div class="yx-index-top">
+			<!-- <div class="index-top-box1"> 
 	  	 </div>
 	  	 <div class="index-top-box2">
 	  	 </div> -->
-	  	<div>
-			<center>
-				新兴贸易
-			</center>
-			<!-- <form action="/search" method="post">
+			<div>
 				<center>
-					<input type="text" name="productname" style="text-align: center;width:80%;height:30px;background-color:rgb(231, 225, 225);" placeholder="输入商品名">
-					<input type="submit" value="搜索" style="text-align: center;width:10%; height:30px;">
+					新兴贸易
 				</center>
-				<a href="search" >
-					<span class="index-top-img1"><img src="/images/search3.png" alt=""></span>搜索
-					<span class="index-top-text1">搜索</span>
-				</a>
-				
-			</form> -->
+			</div>
 		</div>
-	  </div>
-	  <!--头部结束-->
-      <div class="index-bigbox">
-		  <!--轮播开始-->
-		  <div id="slideBox" class="slideBox">
-			<div class="bd" id="bd">
-				<ul>
-					<li>
-						<a class="pic" href="#"><img src="/img/discounts-img1.jpg"/></a>
-					</li>
-					<li>
-						<a class="pic" href="#"><img src="/img/discounts-img2.jpg"/></a>
-					</li>
-					<li>
-						<a class="pic" href="#"><img src="/img/discounts-img3.jpg"/></a>
-					</li>
-					<li>
-						<a class="pic" href="#"><img src="/img/discounts-img4.jpg"/></a>
-					</li>
-				</ul>
+		<!--头部结束-->
+		<div class="index-bigbox">
+			<!--轮播开始-->
+			<div id="slideBox" class="slideBox">
+				<div class="bd" id="bd">
+					<ul>
+						<li>
+							<a class="pic" href="#"><img src="/img/discounts-img1.jpg" /></a>
+						</li>
+						<li>
+							<a class="pic" href="#"><img src="/img/discounts-img2.jpg" /></a>
+						</li>
+						<li>
+							<a class="pic" href="#"><img src="/img/discounts-img3.jpg" /></a>
+						</li>
+						<li>
+							<a class="pic" href="#"><img src="/img/discounts-img4.jpg" /></a>
+						</li>
+					</ul>
+				</div>
+				<div class="hd">
+					<ul></ul>
+				</div>
 			</div>
-			<div class="hd">
-				<ul></ul>
+			<!--轮播开始-->
+			<!--分类导航开始-->
+			<div class="classify-menu">
+				<a href="fruits" class="classify-menu-box1">
+					<span class="classify-menu-img1"><img src="/images/grass.png" alt=""></span>
+					<span class="classify-menu-text1">水果</span>
+				</a>
+				<a href="furnitures" class="classify-menu-box1">
+					<span class="classify-menu-img1 img-color2"><img src="/images/package.png" alt=""></span>
+					<span class="classify-menu-text1">家具</span>
+				</a>
+				<a href="nuts" class="classify-menu-box1">
+					<span class="classify-menu-img1 img-color3"><img src="/images/trophy.png" alt=""></span>
+					<span class="classify-menu-text1">坚果</span>
+				</a>
+				<a href="snacks" class="classify-menu-box1">
+					<span class="classify-menu-img1 img-color4"><img src="/images/diamond.png" alt=""></span>
+					<span class="classify-menu-text1">零食</span>
+				</a>
 			</div>
-		  </div>
-		  <!--轮播开始-->
-		  <!--分类导航开始-->
-          <div class="classify-menu">
-          	  <a href="fruits" class="classify-menu-box1">
-          	  	 <span class="classify-menu-img1"><img src="/images/trophy.png" alt=""></span>
-          	  	 <span class="classify-menu-text1">水果</span>
-          	  </a>
-          	  <a href="furnitures" class="classify-menu-box1">
-          	  	 <span class="classify-menu-img1 img-color2"><img src="/images/package.png" alt=""></span>
-          	  	 <span class="classify-menu-text1">家具</span>
-          	  </a>
-          	  <a href="nuts" class="classify-menu-box1">
-          	  	 <span class="classify-menu-img1 img-color3"><img src="/images/grass.png" alt=""></span>
-          	  	 <span class="classify-menu-text1">果干</span>
-          	  </a>
-          	  <a href="snacks" class="classify-menu-box1">
-          	  	 <span class="classify-menu-img1 img-color4"><img src="/images/diamond.png" alt=""></span>
-          	  	 <span class="classify-menu-text1">零食</span>
-          	  </a>
-          </div>
-		  <!--分类导航结束-->
-		  <!--品牌特卖开始-->
-		  <div class="brand-box1">
-			<a href="fruits">
-			  <span class="brand-text1">优选水果</span>
-			  <span class="brand-img1"></span>
+			<!--分类导航结束-->
+			<!--品牌特卖开始-->
+			<div class="brand-box1">
+				<a href="fruits">
+					<span class="brand-text1">优选水果</span>
+					<span class="brand-img1"></span>
+				</a>
+			</div>
+			<div class="special-sale-banner">
+				<img src="/img/discounts-img1.jpg" alt="">
+			</div>
+			<div class="special-sale-box3">
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/fruits-img7.png" alt=""></span>
+					<center>
+						<span class="special-sale-tbox">枇杷</span>
+						<!-- <div class="special-sale-tbox2"></div> -->
+						<span class="special-sale-text2">￥10.9/斤</span>
+					</center>
+				</div>
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/fruits-img4.png" alt=""></span>
+					<span class="special-sale-tbox">荔枝</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥10.9/斤</span>
+				</div>
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/fruits-img2.png" alt=""></span>
+					<span class="special-sale-tbox">猕猴桃</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥10./斤</span>
+				</div>
+			</div>
+			<!--品牌特卖结束-->
+			<!--优选水果开始-->
+			<div class="brand-box1">
+				<a href="furnitures">
+					<span class="brand-text1">优选家具</span>
+					<span class="brand-img1"></span>
+				</a>
+			</div>
+			<div class="special-sale-banner">
+				<img src="./img/discounts-img2.jpg" alt="">
+			</div>
+			<div class="special-sale-box3">
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/furniture-img1.png" alt=""></span>
+					<span class="special-sale-tbox">欧式客厅沙发</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥1099.9/套</span>
+				</div>
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img//furniture-img2.png" alt=""></span>
+					<span class="special-sale-tbox">中式衣柜</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥599.9/套</span>
+				</div>
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/furniture-img3.png" alt=""></span>
+					<span class="special-sale-tbox">中式餐桌</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥1990.9/套</span>
+				</div>
+			</div>
+			<!--优选水果结束-->
+			<!--酒水饮料开始-->
+			<div class="brand-box1">
+				<a href="nuts">
+					<span class="brand-text1">优选果干</span>
+					<span class="brand-img1"></span>
+				</a>
+			</div>
+			<div class="special-sale-banner">
+				<img src="/img/discounts-img3.jpg" alt="">
+			</div>
+			<div class="special-sale-box3">
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/nut-img1.png" alt=""></span>
+					<span class="special-sale-tbox">巴旦木</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥10.9/斤</span>
+				</div>
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/nut-img2.png" alt=""></span>
+					<span class="special-sale-tbox">碧根果</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥10.9/斤</span>
+				</div>
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/nut-img3.png" alt=""></span>
+					<span class="special-sale-tbox">夏威夷果</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥10.9/斤</span>
+				</div>
+			</div>
+			<!--酒水饮料结束-->
+			<!--休闲零食开始-->
+			<div class="brand-box1">
+				<a href="snacks">
+					<span class="brand-text1">优选零食</span>
+					<span class="brand-img1"></span>
+				</a>
+			</div>
+			<div class="special-sale-banner">
+				<img src="/img/discounts-img4.jpg" alt="">
+			</div>
+			<div class="special-sale-box3">
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/snack-img1.png" alt=""></span>
+					<span class="special-sale-tbox">旺仔qq糖</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥0.9/包</span>
+				</div>
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/snack-img2.png" alt=""></span>
+					<span class="special-sale-tbox">海苔卷</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥10.9/盒</span>
+				</div>
+				<div class="special-sale-box4">
+					<span class="special-sale-img1"><img src="/img/snack-img3.png" alt=""></span>
+					<span class="special-sale-tbox">手工辣条</span>
+					<!-- <div class="special-sale-tbox2"></div> -->
+					<span class="special-sale-text2">￥10.9/盒</span>
+				</div>
+			</div>
+			<!--休闲零食结束-->
+
+		</div>
+		<!--bigbox结束-->
+		<div class="kaola-bottom">
+			<a href="#" class="kaola-bottom-box1">
+				<span class="kaola-bottom-img1"><img src="/images/home.png"></span>
+				<span class="kaola-bottom-text1 text2">首页</span>
 			</a>
-	  </div>
-	  <div class="special-sale-banner">
-		   <img src="/img/discounts-img1.jpg" alt="">
-	  </div>
-	  <div class="special-sale-box3">
-		   <div class="special-sale-box4">
-				<span class="special-sale-img1"><img src="/img/fruits-img7.png" alt=""></span>
-				<center>
-					<span class="special-sale-tbox">枇杷</span>
-				    <!-- <div class="special-sale-tbox2"></div> -->
-				    <span class="special-sale-text2">￥10.9/斤</span>
-				</center>
-		   </div>
-		   <div class="special-sale-box4">
-				<span class="special-sale-img1"><img src="/img/fruits-img4.png" alt=""></span>
-				<span class="special-sale-tbox">荔枝</span>
-				<!-- <div class="special-sale-tbox2"></div> -->
-				<span class="special-sale-text2">￥10.9/斤</span>
-		   </div>
-		   <div class="special-sale-box4">
-				<span class="special-sale-img1"><img src="/img/fruits-img2.png" alt=""></span>
-				<span class="special-sale-tbox">猕猴桃</span>
-				<!-- <div class="special-sale-tbox2"></div> -->
-				<span class="special-sale-text2">￥10./斤</span>
-		   </div>
-	  </div>
-		  <!--品牌特卖结束-->
-		  <!--优选水果开始-->
-		  <div class="brand-box1">
-			<a href="furnitures">
-		  	  <span class="brand-text1">优选家具</span>
-		  	  <span class="brand-img1"></span>
+			<a href="/login" class="kaola-bottom-box1">
+				<span class="kaola-bottom-img1"><img src="/images/news.png"></span>
+				<span class="kaola-bottom-text1">退出账户</span>
 			</a>
-		  </div>
-		  <div class="special-sale-banner">
-			<img src="./img/discounts-img2.jpg" alt="">
-	   </div>
-	   <div class="special-sale-box3">
-			<div class="special-sale-box4">
-				 <span class="special-sale-img1"><img src="/img/furniture-img1.png" alt=""></span>
-				 <span class="special-sale-tbox">欧式客厅沙发</span>
-				 <!-- <div class="special-sale-tbox2"></div> -->
-				 <span class="special-sale-text2">￥1099.9/套</span>
-			</div>
-			<div class="special-sale-box4">
-				 <span class="special-sale-img1"><img src="/img//furniture-img2.png" alt=""></span>
-				 <span class="special-sale-tbox">中式衣柜</span>
-				 <!-- <div class="special-sale-tbox2"></div> -->
-				 <span class="special-sale-text2">￥599.9/套</span>
-			</div>
-			<div class="special-sale-box4">
-				 <span class="special-sale-img1"><img src="/img/furniture-img3.png" alt=""></span>
-				 <span class="special-sale-tbox">中式餐桌</span>
-				 <!-- <div class="special-sale-tbox2"></div> -->
-				 <span class="special-sale-text2">￥1990.9/套</span>
-			</div>
-	   </div>
-		  <!--优选水果结束-->
-		  <!--酒水饮料开始-->
-		  <div class="brand-box1">
-			<a href="nuts">
-		  	  <span class="brand-text1">优选果干</span>
-		  	  <span class="brand-img1"></span>
+			<a href="collect" class="kaola-bottom-box1">
+				<span class="kaola-bottom-img1"><img src="/images/shop-cart1.png"></span>
+				<span class="kaola-bottom-text1">收藏</span>
 			</a>
-		  </div>
-		  <div class="special-sale-banner">
-			<img src="/img/discounts-img3.jpg" alt="">
-	   </div>
-	   <div class="special-sale-box3">
-			<div class="special-sale-box4">
-				 <span class="special-sale-img1"><img src="/img/nut-img1.png" alt=""></span>
-				 <span class="special-sale-tbox">巴旦木</span>
-				 <!-- <div class="special-sale-tbox2"></div> -->
-				 <span class="special-sale-text2">￥10.9/斤</span>
-			</div>
-			<div class="special-sale-box4">
-				 <span class="special-sale-img1"><img src="/img/nut-img2.png" alt=""></span>
-				 <span class="special-sale-tbox">碧根果</span>
-				 <!-- <div class="special-sale-tbox2"></div> -->
-				 <span class="special-sale-text2">￥10.9/斤</span>
-			</div>
-			<div class="special-sale-box4">
-				 <span class="special-sale-img1"><img src="/img/nut-img3.png" alt=""></span>
-				 <span class="special-sale-tbox">夏威夷果</span>
-				 <!-- <div class="special-sale-tbox2"></div> -->
-				 <span class="special-sale-text2">￥10.9/斤</span>
-			</div>
-	   </div>
-		  <!--酒水饮料结束-->
-		  <!--休闲零食开始-->
-		  <div class="brand-box1">
-			<a href="snacks">
-		  	  <span class="brand-text1">优选零食</span>
-		  	  <span class="brand-img1"></span>
+			<a href="usercenter" class="kaola-bottom-box1">
+				<span class="kaola-bottom-img1"><img src="/images/people1.png"></span>
+				<span class="kaola-bottom-text1">个人中心</span>
 			</a>
-		  </div>
-		  <div class="special-sale-banner">
-			<img src="/img/discounts-img4.jpg" alt="">
-	   </div>
-	   <div class="special-sale-box3">
-			<div class="special-sale-box4">
-				 <span class="special-sale-img1"><img src="/img/snack-img1.png" alt=""></span>
-				 <span class="special-sale-tbox">旺仔qq糖</span>
-				 <!-- <div class="special-sale-tbox2"></div> -->
-				 <span class="special-sale-text2">￥0.9/包</span>
-			</div>
-			<div class="special-sale-box4">
-				 <span class="special-sale-img1"><img src="/img/snack-img2.png" alt=""></span>
-				 <span class="special-sale-tbox">海苔卷</span>
-				 <!-- <div class="special-sale-tbox2"></div> -->
-				 <span class="special-sale-text2">￥10.9/盒</span>
-			</div>
-			<div class="special-sale-box4">
-				 <span class="special-sale-img1"><img src="/img/snack-img3.png" alt=""></span>
-				 <span class="special-sale-tbox">手工辣条</span>
-				 <!-- <div class="special-sale-tbox2"></div> -->
-				 <span class="special-sale-text2">￥10.9/盒</span>
-			</div>
-	   </div>
-		  <!--休闲零食结束-->
-          
-      </div>
-      <!--bigbox结束-->
-      <div class="kaola-bottom">
-		<a href="/index" class="kaola-bottom-box1">
-			<span class="kaola-bottom-img1"><img src="/images/home.png"></span>
-			<span class="kaola-bottom-text1 text2">首页</span>
-		</a>
-		<a href="/login" class="kaola-bottom-box1">
-			<span class="kaola-bottom-img1"><img src="/images/news.png"></span>
-			<span class="kaola-bottom-text1">退出账户</span>
-		</a>
-		<a href="cart" class="kaola-bottom-box1">
-			<span class="kaola-bottom-img1"><img src="/images/shop-cart1.png"></span>
-			<span class="kaola-bottom-text1">购物车</span>
-		</a>
-		<a href="usercenter" class="kaola-bottom-box1">
-			<span class="kaola-bottom-img1"><img src="/images/people1.png"></span>
-			<span class="kaola-bottom-text1">个人中心</span>
-		</a>
+		</div>
 	</div>
-</div>
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/web3.min.js"></script>
-<script type="text/javascript" src="/js/web3/web3.js"></script>
-<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
-<script type="text/javascript" src="/js/TouchSlide.1.1.js"></script>
-<script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
-<script>
-	TouchSlide({ 
-			slideCell:"#slideBox",
-			titCell:".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
-			mainCell:".bd ul", 
-			effect:"leftLoop", 
-			autoPage:true,//自动分页
-			autoPlay:true, //自动播放
+	<script>
+		//首页限时商品删除
+	</script>
+	<script type="text/javascript" src="/js/web3.min.js"></script>
+	<script type="text/javascript" src="/js/web3/web3.js"></script>
+	<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+	<script type="text/javascript" src="/js/TouchSlide.1.1.js"></script>
+	<script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
+	<script>
+		TouchSlide({
+			slideCell: "#slideBox",
+			titCell: ".hd ul", //开启自动分页 autoPage:true ，此时设置 titCell 为导航元素包裹层
+			mainCell: ".bd ul",
+			effect: "leftLoop",
+			autoPage: true, //自动分页
+			autoPlay: true, //自动播放
 		});
-</script>
+	</script>
 </body>
+
 </html>

@@ -1,129 +1,98 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
-<meta name="viewport" id="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="format-detection" content="telephone=no"/>
-<link href="/css/reset.css" rel="stylesheet" type="text/css">
-<link href="/css/discounts.css" rel="stylesheet" type="text/css">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" id="viewport"
+		content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="format-detection" content="telephone=no" />
+	<link rel="shortcut icon" href="/images/icon-fl-002.png" type="image">
+	<link href="/css/reset.css" rel="stylesheet" type="text/css">
+	<link href="/css/discounts.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 <title>优选零食</title>
+
 <body>
-<div class="near-box">
-      <!--头部开始-->
-	  <div class="header">
-	  	 <a href="index" class="left"></a>
-	  	 零食
-	  </div>
-	  <!--头部结束-->
-      <div class="discounts-bigbox">
-		  <div class="discounts-banner1"><img src="/img/discounts-img4.jpg" alt=""></div>
-		  <% for(var snack of snacks){ %>
+	<div class="near-box">
+		<!--头部开始-->
+		<div class="header">
+			<a href="../index" class="left"></a>
+			零食
+		</div>
+		<!--头部结束-->
+		<div class="discounts-bigbox">
+			<div class="discounts-banner1"><img src="/img/discounts-img4.jpg" alt=""></div>
+			<input type="text" hidden="true" id="receive_address" value="<%= receive_address %>">
+			<% for(var snack of snacks){ %>
+			<input type="text" hidden="true" id="sellers" value="<%= snack.sellers %>">
 			<div class="discounts-box1">
-			  <span class="d-box1-img1"><img src="<%= snack.img_link %>"></span>
-			  <div class="discounts-box2">
-				  <span class="d-box2-text1"><%= snack.productName %></span>
-				  <span class="d-box2-text2">￥<%= snack.price %>/包<i></i></span>
-				  <button class="d-box2-btn">立即购买</button>
-			  </div>
+				<a href="/detail/<%=snack.id%>"><span class="d-box1-img1"><img src="<%= snack.img_link %>"></span></a>
+				<div class="discounts-box2">
+					<span style="font-size: large;" class="d-box2-text1"><%= snack.productName %></span>
+					<!-- <span style="font-size: medium;" class="d-box2-text1">数量&nbsp;&nbsp;<%= snacks.num %></span>
+					<span class="d-box2-text1"><a href="/detail/<%=snack.id%>"
+							style="font-size: large;color:#F47C02;">详情</a></span> -->
+					<p style="color: rgb(60, 54, 44);">下架&nbsp;&nbsp;<%= snack.end_time %></p>
+					<span class="d-box2-text2">￥<%= snack.price %>/包<i></i></span>
+					<span class="d-box2-btn" onclick="collect('<%= snack.id%>')">收藏</span>
+					<button class="d-box2-btn"><a href="/shop/<%= snack.id %>" id="soldout"
+							data-id="<%=snack.id%>:<%= snack.price %>" class="ids">立即购买</a></button>
+					<!-- <a href="/shop/<%= snack.id %>" class="d-box2-btn">立即购买</a href="/shop/<%= snack.id %>"> -->
+				</div>
 			</div>
 			<% } %>
-		  <!-- <div class="discounts-box1">
-		  	 <span class="d-box1-img1"><img src="/img/snack-img1.png" alt=""></span>
-		  	 <div class="discounts-box2">
-		  	 	<span class="d-box2-text1">旺仔qq糖</span>
-		  	 	<span class="d-box2-text2">￥0.9/包</span>
-		  	 	<button class="d-box2-btn">立即购买</button>
-		  	 </div>
-		  </div>
 
-		  <div class="discounts-box1">
-		  	 <span class="d-box1-img1"><img src="/img/snack-img2.png" alt=""></span>
-		  	 <div class="discounts-box2">
-		  	 	<span class="d-box2-text1">海苔卷</span>
-		  	 	<span class="d-box2-text2">￥10.9/盒</span>
-		  	 	<button class="d-box2-btn">立即购买</button>
-		  	 </div>
-		  </div>
+		</div>
+		<!--bigbox结束-->
+		<div class="discounts-bottom">
+			<form action="/search_shacks" method="post">
+				<center>
+					<input type="text" name="productname"
+						style="text-align: center;width:80%;height:30px;background-color:rgb(231, 225, 225);"
+						placeholder="输入商品名">
+					<input type="submit" value="搜索" style="text-align: center;width:10%; height:30px;">
+				</center>
+			</form>
+		</div>
 
-		  <div class="discounts-box1">
-		  	 <span class="d-box1-img1"><img src="/img/snack-img3.png"alt=""></span>
-		  	 <div class="discounts-box2">
-		  	 	<span class="d-box2-text1">手工辣条</span>
-		  	 	<span class="d-box2-text2">￥10.9/盒</span>
-		  	 	<button class="d-box2-btn">立即购买</button>
-		  	 </div>
-		  </div>
+	</div>
+	<script>
+		/*Array.from(document.getElementsByClassName("id")).forEach(i => {
+			i.onclick = function () {
+				let i = this.getAttribute("data-id");
+				let id = this.getAttribute("data-id").split(":");
+				console.log("i", id[0], id[1])
+				web3.eth.sendTransaction({
+					from: User_Accous[0],
+					to: '0xB1bd1AdCDBc5aeBF7D1d594Aac4cBa50fA9305CD',
+					value: id[1] * 10 ** 18,
+					gas: 1500000,
+					gasPrice: 66666
+				}).then(function (receipt) {
+					console.log(receipt)
+					console.log("send seccess")
+					//alert("转账成功")
+				});
+				if (document.getElementById("receive_address").value != " ") {
+					myContract.methods.contribue(id[0], User_Accous[0]).send({
+						from: User_Accous[0]
+					}).then(
+						function (receipte) {
+							console.log("receipt", receipte);
+						})
+				}
+				//window.location.href = '/article/page/'+i;
+			}
+		})*/
 
-		 
-
-          <div class="discounts-box1">
-		  	 <span class="d-box1-img1"><img src="/img/snack-img4.png" alt=""></span>
-		  	 <div class="discounts-box2">
-		  	 	<span class="d-box2-text1">葱油香酥饼</span>
-		  	 	<span class="d-box2-text2">￥10.9/盒</span>
-		  	 	<button class="d-box2-btn">立即购买</button>
-		  	 </div>
-		  </div>
-
-		  <div class="discounts-box1">
-		  	 <span class="d-box1-img1"><img src="/img/snack-img5.png" alt=""></span>
-		  	 <div class="discounts-box2">
-		  	 	<span class="d-box2-text1">果汁组合</span>
-		  	 	<span class="d-box2-text2">￥2.9/瓶</span>
-		  	 	<button class="d-box2-btn">立即购买</button>
-		  	 </div>
-		  </div>
-
-		  <div class="discounts-box1">
-		  	 <span class="d-box1-img1"><img src="/img/snack-img6.png" alt=""></span>
-		  	 <div class="discounts-box2">
-		  	 	<span class="d-box2-text1">日式压缩饼干</span>
-		  	 	<span class="d-box2-text2">￥10.9/盒</span>
-		  	 	<button class="d-box2-btn">立即购买</button>
-		  	 </div>
-		  </div>
-          
-         
-
-          <div class="discounts-box1">
-		  	 <span class="d-box1-img1"><img src="/img/snack-img7.png" alt=""></span>
-		  	 <div class="discounts-box2">
-		  	 	<span class="d-box2-text1">豆干</span>
-		  	 	<span class="d-box2-text2">￥0.9/包</span>
-		  	 	<button class="d-box2-btn">立即购买</button>
-		  	 </div>
-		  </div>
-
-		  <div class="discounts-box1">
-		  	 <span class="d-box1-img1"><img src="/img/snack-img8.png" alt=""></span>
-		  	 <div class="discounts-box2">
-		  	 	<span class="d-box2-text1">大白兔奶糖</span>
-		  	 	<span class="d-box2-text2">￥30.9/斤</span>
-		  	 	<button class="d-box2-btn">立即购买</button>
-		  	 </div>
-		  </div> -->
-
-      </div>
-      <!--bigbox结束-->
-      <div class="discounts-bottom">
-		<form action="/search_shacks" method="post">
-			<center>
-				<input type="text" name="productname" style="text-align: center;width:80%;height:30px;background-color:rgb(231, 225, 225);" placeholder="输入商品名">
-				<input type="submit" value="搜索" style="text-align: center;width:10%; height:30px;">
-			</center>
-			<!-- <a href="search" >
-				<span class="index-top-img1"><img src="/images/search3.png" alt=""></span>搜索
-				<span class="index-top-text1">搜索</span>
-			</a> -->
-			
-		</form>
-      	 <!-- <span class="d-bottom-text1"></span>
-      	 <a href="" class="d-bottom-text2">搜索</a> -->
-      </div>
-      
-</div>
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
+		function collect(id) {
+			window.location.href = '/snacks/' + id
+		}
+	</script>
+	<script type="text/javascript" src="/js/web3.min.js"></script>
+	<script type="text/javascript" src="/js/web3/web3.js"></script>
+	<script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
 </body>
+
 </html>

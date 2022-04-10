@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/icon-fl-002.png" type="image">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <link href="/css/reset.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <title>我的购买</title>
+</head>
+
+<body>
+    <div class="header">
+        <a href="../usercenter" class="left"></a>
+        确认收货
+    </div>
+    <div style="height: 40px;"></div>
+    <!-- <div class="panel panel-default">
+    <div class="panel-heading">面板标题</div>
+    <div class="panel-body">
+        <p>这是一个基本的面板内容。这是一个基本的面板内容。
+            这是一个基本的面板内容。这是一个基本的面板内容。
+            这是一个基本的面板内容。这是一个基本的面板内容。
+            这是一个基本的面板内容。这是一个基本的面板内容。
+        </p>
+    </div> -->
+    <div>
+        <% for(let buy of buyshop) { %>
+        <ul class="list-group">
+            <center>
+                <li class="list-group-item" style="color: #F47C02;font-size:20px;"><%= buy.productName %></li>
+            </center>
+            <li class="list-group-item"><img src="<%= buy.img_link %>"></li>
+            <li class="list-group-item">￥<%= buy.price %></li>
+            <li class="list-group-item">用户信息&nbsp;&nbsp;&nbsp;<%= str[0] %>：<%= str[1]%>&nbsp;&nbsp;&nbsp;<%= str[2] %>
+            </li>
+            <input type="text" hidden="true" id="sellers" value="<%= buy.sellers %>">
+            <input type="text" hidden="true" id="buynum" value="<%= buy.buynum %>">
+            <li class="list-group-item">商品简介:&nbsp;&nbsp;&nbsp;<%= buy.information %></li>
+            <li class="list-group-item"><a href="/buyshop/<%= buy.id %>" style="color: #F47C02;font-size:15px;"
+                    id="soldout" data-id="<%=buy.id%>:<%= buy.price %>" class="buyshop">确认收货</a>
+            </li>
+        </ul>
+        <% } %>
+    </div>
+    </div>
+    <script type="text/javascript" src="/js/web3.min.js"></script>
+    <script type="text/javascript" src="/js/web3/web3.js"></script>
+</body>
+
+</html>

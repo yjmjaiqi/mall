@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>上架商品</title>
+  <link rel="shortcut icon" href="/images/icon-fl-002.png" type="image">
   <link rel="stylesheet" type="text/css" href="/css/style2.css"/>
   <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
 </head>
@@ -26,27 +27,31 @@
     <div>
     <div class="form-group">
       <label for="name">商品名称</label>
-      <input type="text" name="productname" class="form-control" id="productname" placeholder="请输入商品名称">
+      <input type="text" name="productname" class="form-control" id="productname" placeholder="请输入商品名称" required>
     </div>
     <div class="form-group">
       <label for="name">商品详情</label>
-      <textarea class="form-control information" name="information" id="information" rows="3" placeholder="请输入商品简介"></textarea>
+      <textarea class="form-control information" name="information" id="information" rows="3" placeholder="请输入商品简介" required></textarea>
     </div>
     <div class="form-group">
       <label for="name">商品价格</label>
-      <input type="text" name="price" class="form-control" id="price" placeholder="请输入商品价格">
+      <input type="text" name="price" class="form-control" id="price" placeholder="请输入商品价格" required>
     </div>
+    <!-- <div class="form-group">
+      <label for="name">商品上架数量</label>
+      <input type="text" name="num" class="form-control" pattern="\d"  placeholder="请输入商品数量" required>
+    </div> -->
     <div class="form-group">
       <label for="name">商品上架时间</label>
-      <input type="date" name="start_time" class="form-control" id="start_time" placeholder="请输入商品上架限时(单位/天)">
+      <input type="date" name="start_time" class="form-control" id="start_time"  required>
     </div>
     <div class="form-group">
       <label for="name">商品上架限时</label>
-      <input type="date" name="end_time" class="form-control" id="end_time" placeholder="请输入商品上架限时(单位/天)">
+      <input type="date" name="end_time" class="form-control" id="end_time"  required>
     </div>
     <div class="form-group">
       <label for="inputfile">上传商品图片</label>
-      <input type="file" name="file" id="inputfile">
+      <input type="file" name="file" id="inputfile" required>
     </div>
     <button type="submit" class="btn btn-default">提交</button>
   </form>

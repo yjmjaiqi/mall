@@ -2,11 +2,11 @@ body{background: #fff;}
 .discounts-bigbox{width: 100%;float: left;margin-top: 45px;padding-bottom: 55px;}
 .discounts-banner1{width: 100%;float: left;}
 .discounts-banner1 img{width: 100%;float: left;}
-.discounts-box1{width: 94%;margin: 10px 3% 0px 3%;float: left;height: 140px;border:1px solid #DEDEDE;}
+.discounts-box1{width: 94%;margin: 10px 3% 0px 3%;float: left;height: 198px;border:1px solid #DEDEDE;}
 .d-box1-img1{width: 140px;height: 140px;float: left;text-align: center;position: relative;}
 .d-box1-img1 img{width: 100px;display: inline-block;margin-top: 20px;}
 .discounts-box2{display: block;margin-left: 140px;height: 110px;margin-top: 15px;}
-.d-box2-text1{width: 95%;float: left;height: 40px;line-height: 20px;font-size: 14px;}
+.d-box2-text1{width: 240px;float: left;height: 40px;line-height: 20px;font-size: 14px;}
 .d-box2-text2{width: 95%;float: left;margin-top: 5px;font-size: 16px;color: #EF7D00;}
 .d-box2-text2 i{margin-left: 5px;font-size: 14px;color: #8D8D8D;text-decoration:line-through;}
 .d-box2-btn{padding: 0px 15px;float: left;height: 28px;line-height: 28px;border:none;outline: none;background: #F47C02;

@@ -5,51 +5,54 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css"/>
+    <link rel="shortcut icon" href="/images/icon-fl-002.png" type="image">
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
     <link href="/css/reset.css" rel="stylesheet" type="text/css">
-    <title>历史交易记录</title>
+    <title>我的订单</title>
 </head>
+
 <body>
     <div class="header">
-        <a href="usercenter" class="left"></a>
-        历史交易记录
-   </div>
-    <div class="main">
-        <div style="height: 200px;"></div>
-        <table class="table">
-            <!-- <caption>条纹表格布局</caption> -->
-            <thead>
-                <tr>
-                    <th>购买人</th>
-                    <th>下单时间</th>
-                    <th>购买类型</th>
-                    <th>商品名称</th>
-                    <th>收货地址</th>
-                    <th>确认交易</th>
-                   
-                    <!-- <th>邮编</th> -->
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>张三</td>
-                    <td>2022-03-25</td>
-                    <td>衣物</td>
-                    <td>牛仔裤</td>
-                    <td>江西软件职业技术大学</td>
-                    <td>确定</td>
-                </tr>
-                <tr>
-                    <td>张三</td>
-                    <td>2022-03-25</td>
-                    <td>衣物</td>
-                    <td>牛仔裤</td>
-                    <td>江软</td>
-                    <td>确定</td>
-                </tr>
-                </tbody>
-        </table>
-        </div>
+        <a href="../usercenter" class="left"></a>
+        待发货
+    </div>
+    <div style="height: 40px;"></div>
+    <!-- <div class="panel panel-default">
+    <div class="panel-heading">面板标题</div>
+    <div class="panel-body">
+        <p>这是一个基本的面板内容。这是一个基本的面板内容。
+            这是一个基本的面板内容。这是一个基本的面板内容。
+            这是一个基本的面板内容。这是一个基本的面板内容。
+            这是一个基本的面板内容。这是一个基本的面板内容。
+        </p>
+    </div> -->
+    <div>
+        <% for(let ind of indent) { %>
+        <ul class="list-group">
+            <% if (ind.deliver == "商家发货"){ %>
+                <center>
+                    <li class="list-group-item" style="color: #F47C02;font-size:20px;"><%= ind.productName %></li>
+                </center>
+                <li class="list-group-item"><img src="<%= ind.img_link %>"></li>
+                <li class="list-group-item">￥<%= ind.price %></li>
+                <li class="list-group-item">用户信息&nbsp;&nbsp;&nbsp;<%= str[0] %>：<%= str[1]%>&nbsp;&nbsp;&nbsp;<%= str[2] %>
+                </li>
+                <li class="list-group-item"><a href="#" style="color: #F47C02;font-size:15px;">已发货</a>
+                </li>
+            <% }else{ %>
+                <center>
+                    <li class="list-group-item" style="color: #F47C02;font-size:20px;"><%= ind.productName %></li>
+                </center>
+                <li class="list-group-item"><img src="<%= ind.img_link %>"></li>
+                <li class="list-group-item">￥<%= ind.price %></li>
+                <li class="list-group-item">用户信息&nbsp;&nbsp;&nbsp;<%= str[0] %>：<%= str[1]%>&nbsp;&nbsp;&nbsp;<%= str[2] %>
+                </li>
+                <li class="list-group-item"><a href="/indent/<%= ind.id %>" style="color: #F47C02;font-size:15px;">发货</a>
+                </li>
+            <% } %>
+        </ul>
+        <% } %>
+    </div>
     </div>
 </body>
 
