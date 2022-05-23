@@ -5,7 +5,7 @@ var db = mysql.createConnection({
     port:"3306",//默认端口
     user:"root",
     password:"123456",
-    database:"Dapp_Shop",
+    database:"softtest",
     multipleStatements:true,
     timezone:"SYSTEM"
 });

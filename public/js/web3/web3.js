@@ -1,54 +1,6 @@
-const web3 = new Web3(Web3.givenProvider || "ws://localhost:8546");
+const web3 = new Web3(Web3.givenProvider || "ws://localhost:7545");
 console.log("web3", web3);
 var abi = [
-	{
-		"stateMutability": "payable",
-		"type": "fallback"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_productid",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_address",
-				"type": "address"
-			}
-		],
-		"name": "Iscompelete",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "_id",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "price",
-				"type": "uint256"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_buytime",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address",
-				"name": "__buyer",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "__solder",
-				"type": "address"
-			}
-		],
-		"stateMutability": "payable",
-		"type": "function"
-	},
 	{
 		"inputs": [
 			{
@@ -111,38 +63,6 @@ var abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "auctionLimit",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "buyer",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -181,69 +101,179 @@ var abi = [
 	{
 		"inputs": [
 			{
-				"internalType": "address",
-				"name": "_key",
+				"internalType": "uint256",
+				"name": "_productid1",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_num",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_address1",
 				"type": "address"
 			}
 		],
-		"name": "get",
+		"name": "getmoney",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_productid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_num",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "Iscompelete",
 		"outputs": [
 			{
-				"components": [
-					{
-						"internalType": "uint256",
-						"name": "id",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "class",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "name",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "describe",
-						"type": "string"
-					},
-					{
-						"internalType": "uint256",
-						"name": "price",
-						"type": "uint256"
-					},
-					{
-						"internalType": "string",
-						"name": "image",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "starttime",
-						"type": "string"
-					},
-					{
-						"internalType": "string",
-						"name": "limittime",
-						"type": "string"
-					},
-					{
-						"internalType": "address",
-						"name": "user",
-						"type": "address"
-					},
-					{
-						"internalType": "enum Supermarket.productStatus",
-						"name": "status",
-						"type": "uint8"
-					}
-				],
-				"internalType": "struct Supermarket.Product",
+				"internalType": "uint256",
+				"name": "_id",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "price",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_buytime",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address",
+				"name": "__buyer",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "__solder",
+				"type": "address"
+			}
+		],
+		"stateMutability": "payable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_productid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_num",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address payable",
+				"name": "uder_address",
+				"type": "address"
+			},
+			{
+				"internalType": "address payable",
+				"name": "merchant_address",
+				"type": "address"
+			}
+		],
+		"name": "moneyback",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_productid",
+				"type": "uint256"
+			},
+			{
+				"internalType": "address payable",
+				"name": "_address",
+				"type": "address"
+			}
+		],
+		"name": "returnback",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "fallback"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_user",
+				"type": "address"
+			},
+			{
+				"internalType": "string",
+				"name": "_username",
+				"type": "string"
+			},
+			{
+				"internalType": "string",
+				"name": "_password",
+				"type": "string"
+			}
+		],
+		"name": "upduser",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"stateMutability": "payable",
+		"type": "receive"
+	},
+	{
+		"inputs": [],
+		"name": "auctionLimit",
+		"outputs": [
+			{
+				"internalType": "uint256",
 				"name": "",
-				"type": "tuple"
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "buyer",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
 			}
 		],
 		"stateMutability": "view",
@@ -316,24 +346,6 @@ var abi = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_productid1",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_address1",
-				"type": "address"
-			}
-		],
-		"name": "getmoney",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -535,24 +547,6 @@ var abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_productid",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_address",
-				"type": "address"
-			}
-		],
-		"name": "moneyback",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "productIndex",
 		"outputs": [
@@ -563,24 +557,6 @@ var abi = [
 			}
 		],
 		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_productid",
-				"type": "uint256"
-			},
-			{
-				"internalType": "address payable",
-				"name": "_address",
-				"type": "address"
-			}
-		],
-		"name": "returnback",
-		"outputs": [],
-		"stateMutability": "nonpayable",
 		"type": "function"
 	},
 	{
@@ -653,29 +629,6 @@ var abi = [
 		"type": "function"
 	},
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_user",
-				"type": "address"
-			},
-			{
-				"internalType": "string",
-				"name": "_username",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "_password",
-				"type": "string"
-			}
-		],
-		"name": "upduser",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
 		"inputs": [],
 		"name": "userid",
 		"outputs": [
@@ -726,10 +679,6 @@ var abi = [
 		],
 		"stateMutability": "view",
 		"type": "function"
-	},
-	{
-		"stateMutability": "payable",
-		"type": "receive"
 	}
 ]
 var date = new Date()
@@ -739,15 +688,18 @@ let User_Accous = [];
 // console.log(timestamp);
 web3.eth.getAccounts().then(function (accouts) {
 	User_Accous = accouts;
+	// 用户Metamask自动补全
 	console.log(User_Accous);
+	document.getElementById("idend").value = User_Accous[0];
 });
 
 
-var myContract = new web3.eth.Contract(abi, '0x12B7D7AD465bA864e3e57bf2cb9077Fb68326038');
+var myContract = new web3.eth.Contract(abi, '0xC634072eBE2b9F6303c6904F810BDfa862a7599d');
 
 //  添加用户（注册）
 // var a = 12345
 // console.log(a.length)
+
 $("#loginBtn").click(function () {
 	document.getElementById("address").value = User_Accous[0]
 	console.log("注册凭证", document.getElementById("address").value)
@@ -761,6 +713,11 @@ $("#loginBtn").click(function () {
 		myContract.methods.adduser(username, password).send({ from: User_Accous[0] }).then(
 			function (receipte) {
 				console.log("receipt", receipte);
+				console.log('transactionHash',receipte.transactionHash);
+				if(receipte!=''){
+					// document.getElementById('hash').value = receipte.transactionHash
+					document.getElementById('login_Btn').click()
+				}
 			}
 		)
 	}
@@ -778,6 +735,9 @@ $("#AlterUser").click(function () {
 		myContract.methods.upduser(address, username, password).send({ from: User_Accous[0] }).then(
 			function (receipte) {
 				console.log("receipt", receipte);
+				if(receipte!=''){
+					document.getElementById('Alter_User').click()
+				}
 			}
 		)
 	}
@@ -798,6 +758,10 @@ $(".btn").click(function () {
 	myContract.methods.addProduct(category, productname, information, price, inputfile, start_time, end_time).send({ from: User_Accous[0] }).then(
 		function (receipte) {
 			console.log("receipt", receipte);
+			if(receipte!=''){
+				document.getElementById('hash').value = receipte.transactionHash
+				document.getElementById('b_tn').click()
+			}
 		})
 })
 //下架商品
@@ -811,6 +775,9 @@ Array.from(document.getElementsByClassName("id")).forEach(i => {
 		}).then(
 			function (receipte) {
 				console.log("receipt", receipte);
+				if(receipte!=''){
+					document.getElementById('sold_out').click()
+				}
 			})
 		//window.location.href = '/article/page/'+i;
 	}
@@ -822,31 +789,71 @@ Array.from(document.getElementsByClassName("ids")).forEach(i => {
 		let i = this.getAttribute("data-id").split(":");
 		// let id = this.getAttribute("data-id").split(":");
 		sellers = document.getElementById("sellers").value
-		console.log("i", i[0], i[1], sellers)
+		num = document.getElementById('cool').value
+		console.log("i", i[0], i[1], sellers,num)
 		if (document.getElementById("receive_address").value == '') {
-			return
+			window.location.href = '/address'
 		} else {
 			myContract.methods.contribue(i[0], sellers).send({
 				from: User_Accous[0]
 			}).then(
 				function (receipte) {
 					console.log("receipt", receipte);
+					if(receipte!=''){
+						web3.eth.sendTransaction({
+							from: User_Accous[0],
+							to: '0xC634072eBE2b9F6303c6904F810BDfa862a7599d',
+							value: i[1] * num * 10 ** 18,
+							gas: 1500000,
+							gasPrice: 66666
+						}).then(function (receipt) {
+							console.log(receipt)
+							console.log("send seccess")
+							if(receipt!=''){
+								window.location.href = '/shop/'+i[0]
+								// document.getElementById('id_s').click()
+							}
+							//alert("转账成功")
+						});
+					}
 				})
 		}
+	}
+})
+//详情页购买商品
+Array.from(document.getElementsByClassName("idss")).forEach(i => {
+	i.onclick = function () {
+		let i = this.getAttribute("data-id").split(":");
+		// let id = this.getAttribute("data-id").split(":");
+		sellers = document.getElementById("sellers").value
+		num = document.getElementById('cool').value
+		console.log("i", i[0], i[1], sellers,num)
 		if (document.getElementById("receive_address").value == '') {
-			return
+			window.location.href = '/address'
 		} else {
-			web3.eth.sendTransaction({
-				from: User_Accous[0],
-				to: '0x12B7D7AD465bA864e3e57bf2cb9077Fb68326038',
-				value: i[1] * 10 ** 18,
-				gas: 1500000,
-				gasPrice: 66666
-			}).then(function (receipt) {
-				console.log(receipt)
-				console.log("send seccess")
-				//alert("转账成功")
-			});
+			myContract.methods.contribue(i[0], sellers).send({
+				from: User_Accous[0]
+			}).then(
+				function (receipte) {
+					console.log("receipt", receipte);
+					if(receipte!=''){
+						web3.eth.sendTransaction({
+							from: User_Accous[0],
+							to: '0xC634072eBE2b9F6303c6904F810BDfa862a7599d',
+							value: i[1] * num * 10 ** 18,
+							gas: 1500000,
+							gasPrice: 66666
+						}).then(function (receipt) {
+							console.log(receipt)
+							console.log("send seccess")
+							if(receipt!=''){
+								// window.location.href = '/shop/'+i[0]
+								document.getElementById('id_s').click()
+							}
+							//alert("转账成功")
+						});
+					}
+				})
 		}
 	}
 })
@@ -857,28 +864,56 @@ Array.from(document.getElementsByClassName("buyshop")).forEach(i => {
 		// let id = this.getAttribute("data-id").split(":");
 		console.log("i", i[0], i[1])
 		sellers = document.getElementById("sellers").value
-		buynum = document.getElementById("buynum").value
-		// num = document.getElementById("num").value
-		// alert(num)
-		alert(sellers)
-		// alert(buynum)
-		myContract.methods.Iscompelete(i[0], sellers).send({
+		buynum = document.getElementById('buynum').value
+		console.log(sellers,buynum);
+		myContract.methods.Iscompelete(i[0],buynum, sellers).send({
 			from: User_Accous[0]
 		}).then(
 			function (receipte) {
 				console.log("receipt", receipte);
+				if(receipte!=''){
+					document.getElementById('buy_shop').click()
+				}
 			})
-		// web3.eth.sendTransaction({
-		// 	from: '0x12B7D7AD465bA864e3e57bf2cb9077Fb68326038',
-		// 	to: sellers,
-		// 	value: i[1] *buynum * 10 ** 18,
-		// 	gas: 1500000,
-		// 	gasPrice: 66666
-		// }).then(function (receipt) {
-		// 	console.log(receipt)
-		// 	console.log("send seccess")
-		// 	//alert("转账成功")
-		// });
+	}
+})
+//用户申请退款
+Array.from(document.getElementsByClassName("tuikuan")).forEach(i => {
+	i.onclick = function () {
+		let i = this.getAttribute("data-id").split(":");
+		// let id = this.getAttribute("data-id").split(":");
+		console.log("i", i[0], i[1])
+		sellers = document.getElementById("sellers").value
+		myContract.methods.returnback(i[0], sellers).send({
+			from: User_Accous[0]
+		}).then(
+			function (receipte) {
+				console.log("receipt", receipte);
+				if(receipte!=''){
+					document.getElementById('tui_kuan').click()
+				}
+			})
+	}
+})
+//商家同意退款
+Array.from(document.getElementsByClassName("suretuikuan")).forEach(i => {
+	i.onclick = function () {
+		let i = this.getAttribute("data-id").split(":");
+		// let id = this.getAttribute("data-id").split(":");
+		console.log("i", i[0], i[1])
+		suretuikuan = document.getElementById("suretuikuan").value
+		sellers = document.getElementById("sellers").value
+		buynum = document.getElementById('buynum').value
+		console.log(i[0], i[1], suretuikuan, sellers);
+		myContract.methods.moneyback(i[0],buynum, suretuikuan, sellers).send({
+			from: User_Accous[0]
+		}).then(
+			function (receipte) {
+				console.log("receipt", receipte);
+				if(receipte!=''){
+					document.getElementById('sure_tuikuan').click()
+				}
+			})
 	}
 })
 //商品信息
@@ -900,7 +935,7 @@ $(".productIndex").click(function () {
 
 
 //查询合约余额
-web3.eth.getBalance("0x12B7D7AD465bA864e3e57bf2cb9077Fb68326038")
+web3.eth.getBalance("0xC634072eBE2b9F6303c6904F810BDfa862a7599d")
 	.then(console.log);
 //查询Metamask钱包余额
 web3.eth.getBalance(document.getElementById("myaddress").value)

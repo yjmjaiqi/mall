@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>申请退款</title>
+	<link rel="stylesheet" type="text/css" href="/css/style2.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+</head>
+
+<body>
+	<header class="upload-hedaer">
+		<a href="../buyshop" class="upload-fh"></a>
+		<div>申请退款</div>
+		<!-- <div>···</div> -->
+	</header>
+	<form role="form" action="/apply_tui" method="post">
+		<% for(let tui of tuikuan){ %>
+		<input type="text" hidden="true" id="sellers" value="<%= tui.sellers %>">
+		<div class="form-group">
+			<label for="name">申请原因</label>
+			<select class="form-control" name="reason" id="category">
+				<option>不想要</option>
+				<option>协商一致退款</option>
+				<option>其它</option>
+				<option>买错了</option>
+			  </select>
+		</div>
+		<div class="form-group">
+			<label for="name">退款金额</label>
+			<h1 style="color:#F47C02;"><%= tui.price*buynum%>￥</h1>
+		</div>
+		<input type="text" name="indentid" hidden="true" value="<%= id %>">
+		<input type="text" hidden="true" name="id" value="<%= tui.id %>">
+		<div class="form-group">
+			<label for="name">申请说明</label>
+			<textarea class="form-control" name="clarify" rows="3" required></textarea>
+		</div>
+		<button><a href="#" style="color: #F47C02;font-size:15px;" id="soldout"
+			data-id="<%=tui.id%>:<%= tui.price %>" class="tuikuan">申请退款</a></button>
+		<button type="submit" hidden="true" id="tui_kuan">提交申请</button>
+		<% } %>
+	</form>
+	<script type="text/javascript" src="/js/jquery.js"></script>
+	<!-- <script type="text/javascript" src="/js/web3.min.js"></script>
+	<script type="text/javascript" src="/js/web3/web3.js"></script> -->
+</body>
+
+</html>

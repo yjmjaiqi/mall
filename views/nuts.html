@@ -25,6 +25,7 @@
 			<div class="discounts-banner1"><img src="/img/discounts-img3.jpg" alt=""></div>
 			<input type="text" hidden="true" id="receive_address" value="<%= receive_address %>">
 			<% for(var nut of nuts){ %>
+			<input type="text" id="cool" hidden="true" value="1">
 			<input type="text" hidden="true" id="sellers" value="<%= nut.sellers %>">
 			<div class="discounts-box1">
 				<a href="/detail/<%=nut.id%>"><span class="d-box1-img1"><img src="<%= nut.img_link %>"></span></a>
@@ -35,9 +36,11 @@
 							style="font-size: large;color:#F47C02;">详情</a></span> -->
 					<p style="color: rgb(60, 54, 44);">下架&nbsp;&nbsp;<%= nut.end_time %></p>
 					<span class="d-box2-text2">￥<%= nut.price %>/斤<i></i></span>
-					<span class="d-box2-btn" onclick="collect('<%= nut.id%>')">收藏</span>
-					<button class="d-box2-btn"><a href="/shop/<%= nut.id %>" id="soldout"
-							data-id="<%=nut.id%>:<%= nut.price %>" class="ids">立即购买</a></button>
+					<span class="d-box2-btn" onclick="collect('<%= nut.id%>')">购物车</span>
+					<!-- <button class="d-box2-btn"><a href="#" data-id="<%=nut.id%>:<%= nut.price %>"
+						class="ids">立即购买</a></button> -->
+					<!--隐藏标签-->
+					<button class="d-box2-btn"><a href="/shop/<%= nut.id %>" id="id_s">立即购买</a></button>
 					<!-- <a href="/shop/<%= nut.id %>" class="d-box2-btn">立即购买</a href="/shop/<%= nut.id %>"> -->
 				</div>
 			</div>
@@ -90,8 +93,8 @@
 			window.location.href = '/nuts/' + id
 		}
 	</script>
-	<script type="text/javascript" src="/js/web3.min.js"></script>
-	<script type="text/javascript" src="/js/web3/web3.js"></script>
+	<!-- <script type="text/javascript" src="/js/web3.min.js"></script>
+	<script type="text/javascript" src="/js/web3/web3.js"></script> -->
 	<script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
 </body>
 

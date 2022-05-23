@@ -17,7 +17,7 @@
 	<div class="near-box">
 		<!--头部开始-->
 		<div class="header">
-			<a href="javascript:history.back(-2)" class="left"></a>
+			<a href="../index" class="left"></a>
 			我的收藏
 		</div>
 		<!--头部结束-->
@@ -26,6 +26,7 @@
 			<center style="color: #F47C02;">商品下架将无法购买</center>
 			<input type="text" hidden="true" id="receive_address" value="<%= receive_address %>">
 			<% for(var co of collect){ %>
+			<input type="text" id="cool" hidden="true" value="1">
 			<input type="text" hidden="true" id="sellers" value="<%= co.sellers %>">
 			<div class="discounts-box1">
 				<a href="/detail/<%=co.id%>"><span class="d-box1-img1"><img src="<%= co.img_link %>"></span></a>
@@ -35,9 +36,11 @@
 					<!-- <span class="d-box2-text1"><a href="/detail/<%=co.id%>" style="font-size: large;color:#F47C02;">详情</a></span> -->
 					<p style="color: rgb(60, 54, 44);">下架&nbsp;&nbsp;<%= co.end_time %></p>
 					<span class="d-box2-text2">￥<%= co.price %><i></i></span>
-					<span class="d-box2-btn" onclick="decollect('<%= co.id%>')">取消收藏</span>
-					<button class="d-box2-btn"><a href="/shop/<%= co.id %>" id="soldout"
-							data-id="<%=co.id%>:<%= co.price %>" class="ids">立即购买</a></button>
+					<span class="d-box2-btn" onclick="decollect('<%= co.id%>')">删除</span>
+					<!-- <button class="d-box2-btn"><a href="#" data-id="<%=co.id%>:<%= co.price %>"
+						class="ids">立即购买</a></button> -->
+					<!--隐藏标签-->
+					<button class="d-box2-btn"><a href="/shop/<%= co.id %>" id="id_s">立即购买</a></button>
 					<!-- <a href="/shop/<%= co.id %>" class="d-box2-btn">去结算</a> -->
 				</div>
 			</div>
@@ -80,8 +83,8 @@
 
 		</div>
 
-		<script type="text/javascript" src="/js/web3.min.js"></script>
-		<script type="text/javascript" src="/js/web3/web3.js"></script>
+		<!-- <script type="text/javascript" src="/js/web3.min.js"></script>
+		<script type="text/javascript" src="/js/web3/web3.js"></script> -->
 		<script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
 		<script src="/js/jquery.1.7.1.min.js" type="text/javascript"></script>
 </body>

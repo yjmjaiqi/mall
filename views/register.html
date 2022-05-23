@@ -8,6 +8,21 @@
 		<link rel="stylesheet" type="text/css" href="/css/style0.css">
 		<script src="/js/flexible.js" type="text/javascript" ></script>
 		<script src="/js/zepto.min.js" type="text/javascript" ></script>
+		<style>
+			#loginBtn{
+				height: 0.85rem;
+				line-height: .85rem;
+				text-align: center;
+				font-size: .34rem;
+				color: #FFFFFF;
+				border-radius: 0.85rem;
+				outline: none;
+				box-shadow: 0 0.15rem 0.15rem rgb(31 110 207 / 20%);
+				display: inline-block;
+				width: 100%;
+				background: #1fcfae;
+			}
+		</style>
 	</head>
 	<body>
 		<!--头像-->
@@ -17,16 +32,17 @@
 		<!--注册-->
 		<form action="/register" method="post">
             <div class="item">
-				<input type="text" hidden="true" name="web3" id="address"  autocomplete="off">
+				<!-- <input type="text" hidden="true" name="web3" id="address"  autocomplete="off"> -->
 				<input type="text" name="address" id="iden"  placeholder="请输入MetaMask账户地址" autocomplete="off" class="vcode" required>
 			</div>
 			<div class="item">
-				<input type="text" name="username" id="username" maxlength="11" placeholder="请输入中文网名" autocomplete="off" class="name" pattern="[\u4e00-\u9fa5]{1,}" required>
+				<input type="text" name="username" id="username" maxlength="11" placeholder="请输入网名" autocomplete="off" class="name" required>
 			</div>
 			<div class="item">
 				<input type="password" name="password" id="password" placeholder="请输入数字密码6~18" autocomplete="off" class="password" pattern="\w{6,18}" required>
 			</div>
-			<div class="submit"><button id="loginBtn">注&nbsp;册</button></div>
+			<!-- <div class="submit"><b id="loginBtn">注&nbsp;册</b></div> -->
+			<button id="loginBtn">注册</button>
 			<div>
 				<p><a href="login">登录</a></p>
 			</div>
@@ -40,7 +56,7 @@
 		</div>
 	</body>
 	<script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/web3.min.js"></script>
-    <script type="text/javascript" src="/js/web3/web3.js"></script>
+    <!-- <script type="text/javascript" src="/js/web3.min.js"></script>
+    <script type="text/javascript" src="/js/web3/web3.js"></script> -->
 	<script src="/js/jquery.1.7.1.min.js" type="text/javascript"></script>
 </html>

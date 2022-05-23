@@ -25,6 +25,7 @@
 			<div class="discounts-banner1"><img src="/img/discounts-img2.jpg" alt=""></div>
 			<input type="text" hidden="true" id="receive_address" value="<%= receive_address %>">
 			<% for(var furniture of furnitures){ %>
+			<input type="text" id="cool" hidden="true" value="1">
 			<input type="text" hidden="true" id="sellers" value="<%= furniture.sellers %>">
 			<div class="discounts-box1">
 				<a href="/detail/<%=furniture.id%>"><span class="d-box1-img1"><img
@@ -35,9 +36,11 @@
 					<!-- <span class="d-box2-text1"><a href="/detail/<%=furniture.id%>" style="font-size: large;color:#F47C02;">详情</a></span> -->
 					<p style="color: rgb(60, 54, 44);">下架&nbsp;&nbsp;<%= furniture.end_time %></p>
 					<span class="d-box2-text2">￥<%= furniture.price %>/套<i></i></span>
-					<span class="d-box2-btn" onclick="collect('<%= furniture.id%>')">收藏</span>
-					<button class="d-box2-btn"><a href="/shop/<%= furniture.id %>" id="soldout"
-							data-id="<%=furniture.id%>:<%= furniture.price %>" class="ids">立即购买</a></button>
+					<span class="d-box2-btn" onclick="collect('<%= furniture.id%>')">购物车</span>
+					<!-- <button class="d-box2-btn"><a href="#" data-id="<%=furniture.id%>:<%= furniture.price %>"
+						class="ids">立即购买</a></button> -->
+					<!--隐藏标签-->
+					<button class="d-box2-btn"><a href="/shop/<%= furniture.id %>" id="id_s">立即购买</a></button>
 					<!-- <a href="/shop/<%= furniture.id %>" class="d-box2-btn">立即购买</a> -->
 				</div>
 			</div>
@@ -91,8 +94,8 @@
 			window.location.href = '/furnitures/' + id
 		}
 	</script>
-	<script type="text/javascript" src="/js/web3.min.js"></script>
-	<script type="text/javascript" src="/js/web3/web3.js"></script>
+	<!-- <script type="text/javascript" src="/js/web3.min.js"></script>
+	<script type="text/javascript" src="/js/web3/web3.js"></script> -->
 	<script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
 	<script src="/js/jquery.1.7.1.min.js" type="text/javascript"></script>
 </body>

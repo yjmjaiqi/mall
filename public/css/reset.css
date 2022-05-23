@@ -19,7 +19,7 @@ img, button { border: 0px none; }
 a { text-decoration: none;outline:none;color: #232326;}
 :focus { outline:0; }
 button { cursor: pointer;line-height:normal !important; }
-input, button, select, textarea { outline: none; border-radius: 0px;border:none; }
+input, button, select, textarea { outline: none; border-radius: 0px; }
 textarea { resize: none; }
 .cl { float: none !important; clear: both !important; height: 0px !important; _height: 1px !important; line-height: 0px !important; margin: 0px !important; padding: 0px !important; width: 0 !important; border: none !important; overflow: auto !important; zoom: 1; background: none !important; }
 .tl { text-align: left !important; }

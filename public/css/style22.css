@@ -1,0 +1,29 @@
+*{margin: 0;padding: 0;border: 0;list-style: none;text-decoration: none;color: inherit;font-weight: normal;font-family: "微软雅黑";box-sizing: border-box;font-style: normal;outline: none;-webkit-tap-highlight-color: transparent;}
+body{width: 100%;overflow-x: hidden;background: #f5f6f7;background-size: 100%;}
+img{vertical-align: middle;max-width: 100%;}
+/*顶部标题 返回*/
+.top{position: absolute;top: 0;left: 0;height: .88rem;line-height: .88rem;width: 100%;text-align: center;font-size: .36rem;color: #333333;background: #FFFFFF;}
+.top i{background: url(../img/icon-back.png) center left no-repeat;position: absolute;top: 0;left: .2rem;height: 100%;display: inline-block;background-size: .18rem .32rem;width: .5rem;height: 100%;}
+/*服务评价*/
+.fwpj{width: 100%;display: flex;justify-content: space-between;align-items: center;background: #FFFFFF;padding: .25rem .5rem .25rem .35rem;font-size: .3rem;color: #000000;margin-top: 1.03rem;margin-bottom: .15rem;}
+.star{display: flex;}
+.star span{width: .36rem;height: .33rem;margin-left: .3rem;background: url(../img/star.png) center center no-repeat;background-size: 100%;cursor: pointer;}
+.star span.on{background-image: url(../img/star-active.png);}
+/*具体说说看*/
+.form-box{width: 100%;background: #FFFFFF;font-size: .3rem;color: #000;}
+.form-box .title{text-align: center;font-size: .24rem;color: #999999;padding-bottom: .25rem;}
+.form-box .title span{padding: 0 .1rem;}
+.form-box .jtssk {padding: .25rem .5rem .3rem .35rem;}
+.form-box .jtssk .item{display: flex;justify-content: space-between;align-items: center;padding: .25rem 0;}
+/*选择标签*/
+.xzbq .tags{width: 100%;padding-top: .15rem;}
+.xzbq .tags ul{display: flex;flex-wrap: wrap;justify-content: space-between;padding: 0 .25rem;}
+.xzbq .tags ul li{flex-shrink: 0;padding: 0 .25rem;height: .62rem;line-height: .62rem;font-size: .28rem;color: #666666;background: #f2f2f2;border-radius: .62rem;margin-bottom: .18rem;cursor: pointer;}
+.xzbq .tags ul li.on{background: #0090ff;color: #fff;}
+/*备注*/
+.remark{width: 100%;padding: .25rem;}
+.remark textarea{width: 100%;height: 2rem;background: #f5f6f7;resize: none;outline: none;border-radius: .15rem;line-height: .25rem;padding: .2rem;}
+/*提交*/
+.submit{width: 100%;padding:  .85rem .7rem .5rem .7rem;}
+.submit button{width: 100%;height: .9rem;background: #0090ff;border-radius: .9rem;font-size: .36rem;color: #ffffff;letter-spacing: .02rem;box-shadow: 0 0 .15rem rgba(0,0,0,.2);}
+

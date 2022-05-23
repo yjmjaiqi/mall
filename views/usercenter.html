@@ -9,10 +9,11 @@
     <meta content="black" name="apple-mobile-web-app-status-bar-style" />
     <meta content="telephone=no" name="format-detection" />
     <link rel="shortcut icon" href="/images/icon-fl-002.png" type="image">
-    <link href="/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="/css/style1.css" rel="stylesheet" type="text/css" />
     <link href="/css/reset.css" rel="stylesheet" type="text/css">
     <link href="/css/discounts.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
 
 </head>
 <style>
@@ -36,7 +37,16 @@
                         <% for(let user of users){ %>
                         <div class="jq22-flex-box">
                             <div class="jq22-my-user">
-                                <img src="/images/a.jpg" alt="">
+                                <form action="/photo" method="post" enctype="multipart/form-data">
+                                    <input type="text" hidden="true" name="id" value="<%= user.id %>">
+                                    <input type="file"  style="display: none;" id="btnfile" class="input" name="file">
+                                    <input type="submit" hidden="true" id="submit" value="上传">
+                                </form>
+                                <% if(user.photo=='') { %>
+                                    <img src="/images/a.jpg" alt="" id="btnfiles">
+                                <% }else { %>
+                                    <img src="<%= user.photo %>" alt="" id="btnfiles">
+                                <% } %>
                                 <!-- <input type="file" name="file"> -->
                                 <span><%= user.username %></span>
                             </div>
@@ -96,12 +106,12 @@
                         <span></span>
                     </div>
                 </a>
-                <a href="bill" class="jq22-flex ">
+                <a href="mychats/<%= users[0].id %>" class="jq22-flex ">
                     <div class="jq22-cou-img">
                         <img src="/images/icon-fl-004.png" alt="">
                     </div>
                     <div class="jq22-flex-box">
-                        <p>电子发票</p>
+                        <p>消息</p>
                     </div>
                     <div class="jq22-ren-arrow">
                         <span></span>
@@ -118,7 +128,7 @@
                         <!-- <span onclick="alter()">修改地址</span> -->
                     </div>
                 </a>
-                <a href="history" class="jq22-flex ">
+                <!-- <a href="history" class="jq22-flex ">
                     <div class="jq22-cou-img">
                         <img src="/images/icon-sml-002.png" alt="">
                     </div>
@@ -128,7 +138,7 @@
                     <div class="jq22-ren-arrow">
                         <span></span>
                     </div>
-                </a>
+                </a> -->
                 <a href="myshop" class="jq22-flex ">
                     <div class="jq22-cou-img">
                         <img src="/images/people2.png" alt="">
@@ -160,10 +170,18 @@
     </section>
     <script>
         //alert(document.getElementById("myaddress").value)
+        $('#btnfiles').click(function(){
+            document.getElementById('btnfile').click()
+        })
+        $("input").change(function () {
+			var str=$(this).val();
+			if(str!==""){
+                document.getElementById('submit').click()
+			}
+		});
     </script>
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/web3.min.js"></script>
-    <script type="text/javascript" src="/js/web3/web3.js"></script>
+    <!-- <script type="text/javascript" src="/js/web3.min.js"></script>
+    <script type="text/javascript" src="/js/web3/web3.js"></script> -->
 </body>
 
 </html>

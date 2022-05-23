@@ -2,123 +2,340 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/icon-fl-002.png" type="image">
-    <link href="/css/reset.css" rel="stylesheet" type="text/css">
-    <link href="/css/discounts.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <title>详情</title>
+  <meta charset="UTF-8" />
+  <title>商品详情页面</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,minimum-scale=1,maximum-scale=1" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link href="/css/ratchet.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="/css/page.css" />
+  <link rel="stylesheet" type="text/css" href="/css/product.css" />
+  <link rel="stylesheet" type="text/css" href="/css/pro2.css" />
+  <link href="/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+  <link href="/css/reset.css" rel="stylesheet" type="text/css">
+  <link href="/css/discounts.css" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="/js/jquery.js"></script>
+  <script src="/js/flex.js"></script>
+  <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+  <script src="/js/ratchet.min.js"></script>
 </head>
 
-<body style="background-color: aquamarine;">
-    <div class="near-box">
-        <!--头部开始-->
-        <div class="header">
-            <% for(let de of detail){ %>
-            <% if(de.category == "家具"){ %>
-            <a href="../furnitures" class="left"></a>
-            <% }else if(de.category == "水果"){ %>
-            <a href="../fruits" class="left"></a>
-            <% }else if(de.category == "坚果"){ %>
-            <a href="../nuts" class="left"></a>
-            <% }else{ %>
-            <a href="../snacks" class="left"></a>
-            <% } %>
-            <% } %>
-            <!-- <a href="javascript:history.back(-1)" class="left"></a> -->
-            详情
-        </div>
-        <!--头部结束-->
-        <div>
-            <div style="height: 40px;"></div>
-            <input type="text" hidden="true" id="receive_address" value="<%= receive_address %>">
-            <% for(let de of detail){ %>
-            <input type="text" hidden="true" id="sellers" value="<%= de.sellers %>">
-            <p><img src="<%= de.img_link %>"></p>
-            <div>
-                <span style="font-size: 20px;color:#F47C02;"><%= de.productName %></span>
-                &nbsp;&nbsp;&nbsp;
-                <button><a href="/shop/<%= de.id %>" style="color: #F47C02;" id="soldout"
-                        data-id="<%=de.id%>:<%= de.price %>" class="ids">立即购买</a></button>
-                &nbsp;&nbsp;&nbsp;
-                <span style="font-size: medium;">数量:&nbsp;&nbsp;<%= de.num %></span>
+<body>
+  <header class="bar bar-nav">
+    <!-- <a href="" class="icon icon-left-nav pull-left"></a> <a
+      class="icon icon-more-vertical pull-right"></a> -->
+    <% for(let de of detail){ %>
+    <% if(de.category == "家具"){ %>
+    <a href="../furnitures" class="icon icon-left-nav pull-left"></a>
+    <!-- <a href="../furnitures" class="left"></a> -->
+    <% }else if(de.category == "水果"){ %>
+    <a href="../fruits" class="icon icon-left-nav pull-left"></a>
+    <% }else if(de.category == "坚果"){ %>
+    <a href="../nuts" class="icon icon-left-nav pull-left"></a>
+    <% }else{ %>
+    <a href="../snacks" class="icon icon-left-nav pull-left"></a>
+    <% } %>
+    <% } %>
+    <h1 class="title">商品详情</h1>
+  </header>
+
+  <div id="content">
+    <input type="text" hidden="true" id="receive_address" value="<%= receive_address %>">
+    <% for(let de of detail){ %>
+    <!-- <input type="text" hidden="true" id="sellers" value="<%= de.sellers %>"> -->
+    <div class="scroller">
+      <div id="p-summary" class="page">
+        <div class="container">
+          <section id="s-showcase">
+            <div class="scroller">
+              <input type="text" hidden="true" id="sellers" value="<%= de.sellers %>">
+              <div class="itbox main"> <a class="item"> <img style="width:90%;height:90%;" src="<%= de.img_link %>" />
+                </a> </div>
             </div>
-            <div style="height: 10px;background-color:aquamarine"></div>
-            <p style="font-size: 5px;"><span>售卖人：</span><br><%= de.sellers %></p>
-            <div style="height: 10px;background-color:aquamarine"></div>
-            <div><span>价格：</span>&nbsp;&nbsp;&nbsp;<span><%= de.price %>￥</span>
-            </div><br>
-            <div style="height: 10px;background-color:aquamarine"></div>
-            <div><span>下架时间：</span>&nbsp;&nbsp;&nbsp;<span><%= de.end_time %></span></div><br>
-            <div>
-                <div>商品介绍</div>
-                <div style="font-size: 10px;color:darkgray"><%= de.information %></div>
-            </div><br>
-            <div>
-                <div>用户评论</div>
-                <% for(let comm of comments){ %>
-                <div style="font-size: 10px;color:darkgray;margin-left:9%"><%= comm.comment%></div>
-                <% } %>
+          </section>
+          <section id="s-from" class="mui-flex"> </section>
+          <section id="s-title">
+
+            <div class="main">
+              <h1 style="color: coral;"><%= de.productName %></h1>
+              <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+              <!-- <h1 style="color: coral;">已购：<%= success_num%></h1> -->
             </div>
-            <div>
-                <div>商品评论</div>
-                <form role="form" action="/comment" method="POST">
-                    <div class="form-group">
-                        <label for="name"></label>
-                        <textarea name="content" class="form-control" rows="3" required></textarea>
-                    </div>
-                    <input type="text" hidden="true" name="id" value="<%= de.id %>">
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-default">提交</button>
-                        </div>
-                    </div>
+            <div class="sub">
+              <div class="slogon"></div>
+            </div>
+          </section>
+          <section id="s-price"> <span class="mui-price big"> <i class="mui-price-rmb">&yen;</i> <span
+                class="mui-price-integer"><%= de.price %></span> <span class="mui-price-decimal"></span> </span>
+          </section>
+          <section id="s-adds"> </section>
+          <section id="s-hkDeliver"></section>
+          <section class="itemExtraInfo"> </section>
+          <section id="s-advantage" data-spm=""> </section>
+          <div id="s-action-container">
+            <section id="s-action"> </section>
+          </div>
+          <section id="s-rate" data-spm=""> </section>
+          <ul class="table-view">
+            <li class="table-view-cell" style="padding: 11px 6px 11px 15px;font-size: 18px;font-style:bold;color:#333;">
+              点击选择购买数量 <span style="float: right;margin-right:10px;" class="icon icon icon-more clickwn"></span>
+            </li>
+          </ul>
+          <ul class="table-view" style="margin-top: 10px;">
+            <li class="table-view-cell media"> <a class=""> <img class="media-object pull-left"
+                  src="/images/trade-assurance.png" />
+                <div class="media-body">商家地址
+                  <p><%= de.sellers %></p>
+                </div>
+              </a> </li>
+          </ul>
+          <!-- <ul class="table-view" style="margin-top: 10px;">
+            <li class="table-view-cell media"> <a class="">
+                <div class="media-body">商品Hash值
+                  <p><%= de.hash %></p>
+                </div>
+              </a> </li>
+          </ul> -->
+          <ul class="table-view" style="margin-top: 10px;">
+            <li class="table-view-cell media"> <a class="">
+                <div class="media-body">商品详情
+                  <p><%= de.information %></p>
+                </div>
+              </a> </li>
+          </ul>
+          <ul class="table-view" style="margin-top: 10px;">
+            <li class="table-view-cell media">
+              <% if(indentbuyers==id ){ %>
+                <form role="form" action="/decomment" method="post">
+                  <input type="text" hidden="true" name="id" value="<%= de.id %>">
+                  <div class="form-group">
+                    <label for="name">评论</label>
+                    <textarea name="content" class="form-control" rows="3" required></textarea>
+                  </div>
+                  <button type="submit" class="btn">提交</button>
                 </form>
+              <% } %>
+            </li>
+          </ul>
+          <ul class="table-view" style="margin-top:10px;">
+            <li class="table-view-cell"> <a class="navigate-right" style="font-size: 18px;font-style:bold;color:#666;">
+                <span class="badge">共<%= num %>条</span> 用户评价 </a>
+              <div style="height:200px;overflow:auto; position: relative; margin: -13px -41px -11px -33px ; ">
+                <% for(let comm of comments){ %>
+                <div style="font-size: 13px;color:darkgray;margin-left:13%"><%= comm.comment.split(":")[0]%>:
+                  &nbsp; &nbsp; &nbsp;<%= comm.comment.split(":")[1]%>
+                </div>
+                <%}%>
             </div>
-            <% } %>
+            </li>
+        </ul>
+        <!-- 弹出 -->
+        <div class="flick-menu-mask" style=""></div>
+        <div class="spec-menu">
+          <div class="spec-menu-content spec-menu-show" style="display: block;">
+            <div class="spec-menu-top bdr-b">
+              <div class="spec-first-pic"> <img id="spec_image" src="<%= de.img_link%>" /> </div>
+              <a class="rt-close-btn-wrap spec-menu-close">
+                <p class="flick-menu-close tclck"> <img src="/images/close.png" width="24" height="24" /> </p>
+              </a>
+              <div id="specPlus" class="plus-price-wrap spec-plus-price-mtl" style="display: none">
+                <div class="plus-price-row">
+                  <div class="spec-jd-price"> <span class="plus-jd-price-title">京东价：</span> <span
+                      class="price-icon grey"></span> <span class="plus-jd-price-text" id="specJdPrice"> 36.80 </span>
+                  </div>
+                </div>
+                <div class="plus-price-row">
+                  <div class="spec-plus-price"> <span class="plus-member-price-title">会员价：</span> <span
+                      class="price-icon black"></span> <span class="plus-member-price-text" id="specPlusPrice"></span>
+                    <img class="plus-pri-icon" src="<%= de.img_link %>" /> </div>
+                </div>
+              </div>
+              <div class="spec-price" id="specJdPri" style="display: block"> <span class="yang-pic spec-yang-pic"> <img
+                    src="/images/rmb.png" /> </span> <span id="spec_price"> <%= de.price %> </span>
+                <input type="text" hidden="true" id="spec_pric" value="<%= de.price %>">
+              </div>
+              <!-- <div id="specWeightDiv" class="spec-weight"> <span>重量:</span> <span id="spec_weight">3.26kg</span> </div> -->
         </div>
-        <script>
-            //下架商品
-            //$("#soldout").click(function () {
-            //console.log("qqq")
-            /*Array.from(document.getElementsByClassName("id")).forEach(i => {
-                i.onclick = function () {
-                    let i = this.getAttribute("data-id");
-                    let id = this.getAttribute("data-id").split(":");
-                    console.log("i", id[0], id[1])
-                    web3.eth.sendTransaction({
-                        from: User_Accous[0],
-                        to: '0xB1bd1AdCDBc5aeBF7D1d594Aac4cBa50fA9305CD',
-                        value: id[1] * 10 ** 18,
-                        gas: 1500000,
-                        gasPrice: 66666
-                    }).then(function (receipt) {
-                        console.log(receipt)
-                        console.log("send seccess")
-                        //alert("转账成功")
-                    });
-                    if (document.getElementById("receive_address").value != " ") {
-                        myContract.methods.contribue(id[0], User_Accous[0]).send({
-                            from: User_Accous[0]
-                        }).then(
-                            function (receipte) {
-                                console.log("receipt", receipte);
-                            })
-                    }
-                    //window.location.href = '/article/page/'+i;
-                }
-            })*/
-        </script>
-
+        <div class="spec-menu-middle">
+          <div class="prod-spec" id="prodSpecArea">
+            <!-- 已选 -->
+            <div class="prod-spec" id="prodSpecArea">
+              <!-- 已选 -->
+              <div class="spec-desc"> <span class="part-note-msg">已选</span>
+                <div id="specDetailInfo_spec" class="base-txt"> <%= de.productName %> &nbsp;&nbsp; <span
+                    class="amount">1</span> </div>
+              </div>
+              <div class="nature-container" id="natureCotainer">
+                <!--颜色 5.5版本之前的规格属性-->
+                <!-- <div class="pro-color"> <span class="part-note-msg"> </span>
+              <p id="color"> <a title="小苹果" class="a-item selected J_ping" report-eventparam="小苹果">小苹果</a> <a
+                  title="小苹果" class="a-item J_ping" report-eventparam="小苹果">小苹果</a> <a title="小苹果" class="a-item J_ping"
+                  report-eventparam="小苹果">小苹果</a> <a title="小苹果" class="a-item J_ping" report-eventparam="小苹果">小苹果</a>
+                <a title="小苹果" class="a-item J_ping" report-eventparam="小苹果">小苹果</a> <a title="小苹果"
+                  class="a-item J_ping" report-eventparam="小苹果">小苹果</a> </p>
+            </div> -->
+              </div>
+              <div id="addCartNum" class="pro-count"> <span class="part-note-msg" style="margin-right: 10px;">数量</span>
+                <div style="width: 100%;margin-left: 10px;" class="num">
+                  <p class="jian" style="float: left;margin-top: 5px;"><img src="/images/jian.png" width="16"
+                      height="16">
+                  </p>
+                  <input id="cool" class="inputBorder" value="1" onkeyup="this.value=this.value.replace(/[^0-9]/g,'')"
+                    onafterpaste="this.value=this.value.replace(/[^0-9]/g,'')" type="text" maxlength="5"
+                    placeholder="数量"
+                    style="font-size: 12px;width: 60px;height: 20px;float: left;padding: 0 5px;margin-top:3px;margin-left: 5px;" />
+                  <p class="jia" style="float: left;margin-top: 5px;margin-left:4px;"><img src="/images/jia.png"
+                      width="16" height="16"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--延保start-->
+          <div class="warranty-wrap bdr-t" style="display: none;">
+            <div id="spec_yanbaoInfo" class="warranty-title"> 保障服务 </div>
+            <div id="spec_yanbaoItems"> </div>
+          </div>
+          <!--延保end-->
+        </div>
+        <div class="flick-menu-btn spec-menu-btn"> <a class="yellow-color add_cart" onclick="collect('<%= de.id%>')"
+            id="add_cart_spec" style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);">加入购物车</a>
+          <!-- <a class="red-color directorder idss" id="directorder_spec" data-id="<%=de.id%>:<%= de.price %>"
+            style="transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1);"><button
+              style="border: none;background-color:red" class="buy cell">立即购买</button></a> -->
+          <button style="border: none;background-color:red;" class="buy cell"
+              onclick="soldout('<%= de.id%>')" id="id_s">立即购买</button>
+          <a class="yellow-color J_ping looksimilar looksimilara looksimilar_spec" id="looksimilar_speca" href=" "
+            style="display: none;" report-eventid="MProductdetail_Similar" report-eventparam="W"
+            report-eventlevel="5">查看相似</a>
+          <!--大家电-查看同款-->
+          <a class="yellow-color J_ping looksimilar looksimilarb looksimilar_spec" id="looksimilar_specb" href=""
+            style="display: none;" report-eventid="MProductdetail_SameProduct" report-pageparam=""
+            report-eventlevel="4">查看同款</a> <a class="red-color J_ping arrivalInform" id="arrivalInform_spec"
+            style="display: none;" report-eventid="MProductdetail_ArrivalNotice" report-eventparam="2015246_W"
+            report-eventlevel="5">到货通知</a> <a class="red-color disabled waitingForAppointments" style="display: none;"
+            id="waitingForAppointments_spec">等待预约</a> <a class="red-color makeAppointments" style="display: none;"
+            id="makeAppointments_spec">立即预约</a> <a class="red-color disabled waitingForBuying" style="display: none;"
+            id="waitingForBuying_spec">等待抢购</a> <a class="red-color buyImmediately" style="display: none;"
+            id="buyImmediately_spec">立即抢购</a> <a class="red-color disabled appointmentsEnd" style="display: none;"
+            id="appointmentsEnd_spec">预约结束</a> <a class="red-color" style="display: none;"
+            id="yushou_add_cart_spec">立即预定</a> </div>
+      </div>
     </div>
+    <!-- 弹出 -->
+    <section id="s-actionBar-container">
+      <div id="s-actionbar" class="action-bar mui-flex align-center">
+        <div class="web"> <img src="/images/atm.png" width="20" height="20" />
+          <p  onclick="chat('<%= de.id%>')">联系商家</p>
+        </div>
+        <!-- <div class="web"> <img src="/images/trade-assurance.png" width="20" height="20" />
+        <p>评论</p>
+      </div> -->
+      <!-- <div class="web"> <img src="/images/favorite.png" width="20" height="20" />
+        <p>客服</p>
+      </div> -->
+        <button class="cart cell" onclick="collect('<%= de.id%>')">加入购物车</button>
+        <!-- <button class="buy cell"><a id="soldout" data-id="<%=de.id%>:<%= de.price %>" class="idss">立即购买</a></button> -->
+        <button onclick="soldout('<%= de.id%>')"><a id="soldout"
+            id="id_s">立即购买</a></button>
+        <!-- <button class="buy cell" id="soldout" onclick="soldout('<%= de.id%>')" data-id="<%=de.id%>:<%= de.price %>"
+          class="ids">立即购买</button> -->
+        <div class="activity-box cell"></div>
+      </div>
+    </section>
+  </div>
+  </div>
+  </div>
+  <% } %>
+  </div>
+  <script type="text/javascript">
+    function chat(id){
+      window.location.href = '/shopchats/' + id
+    }
+    function soldout(id) {
+      window.location.href = '/buydetail/' + (id + ":" + document.getElementById('cool').value)
+    }
 
-    <script type="text/javascript" src="/js/web3.min.js"></script>
-    <script type="text/javascript" src="/js/web3/web3.js"></script>
-    <script type="text/javascript" src="/js/scrolltopcontrol.js"></script>
-    <script src="/js/jquery.1.7.1.min.js" type="text/javascript"></script>
+    function collect(id) {
+      window.location.href = '/collect/' + id
+    }
+    $(function () {
+      $(".clickwn").click(function () {
+        $(".flick-menu-mask").show();
+        $(".spec-menu").show();
+      })
+
+      $(".tclck").click(function () {
+        $(".flick-menu-mask").hide();
+        $(".spec-menu").hide();
+      })
+
+      /* $("#cool").focus(function(){
+           var oi = $('#cool').val();
+  
+           $('.amount').html(oi)
+       });*/
+
+      $('#cool').bind('input propertychange', function () {
+        /* alert(this.value);*/
+        $('.amount').html(this.value)
+
+      }).bind('input input', function () {
+
+      });
+
+
+      $('#color a').click(function () {
+        var cook = $(this).index();
+        $('#color a').eq(cook).addClass('selected').siblings().removeClass('selected');
+      })
+
+
+      //加减面板
+      $(function () {
+        //加号
+        $(".jia").click(function () {
+          var eq
+          var $parent = $(this).parent(".num");
+          var $num = window.Number($(".inputBorder", $parent).val());
+          $(".inputBorder", $parent).val($num + 1);
+
+          $('.amount').html($num + 1)
+          //alert(typeof(parseInt(document.getElementById('spec_pric').innerText)))
+          //alert(parseInt(document.getElementById('spec_pric').value))
+          eq = parseInt(document.getElementById('spec_pric').value) * ($num + 1)
+          document.getElementById('spec_price').innerHTML = eq
+        });
+
+        //减号
+        $(".jian").click(function () {
+          var eq
+          var $parent = $(this).parent(".num");
+          var $num = window.Number($(".inputBorder", $parent).val());
+          if ($num > 1) {
+            $(".inputBorder", $parent).val($num - 1);
+            $('.amount').html($num - 1)
+            eq = parseInt(document.getElementById('spec_price').innerHTML) - parseInt(document
+              .getElementById('spec_pric').value)
+            document.getElementById('spec_price').innerHTML = eq
+
+          } else {
+            $(".inputBorder", $parent).val(1);
+            $('.amount').html($num)
+            document.getElementById('spec_price').innerHTML = parseInt(document.getElementById('spec_pric')
+              .value)
+
+          }
+        });
+
+      })
+
+
+    })
+  </script>
+  <!-- <script type="text/javascript" src="/js/web3.min.js"></script>
+  <script type="text/javascript" src="/js/web3/web3.js"></script> -->
 </body>
 
 </html>

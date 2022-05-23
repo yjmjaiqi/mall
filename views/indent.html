@@ -1,59 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="/images/icon-fl-002.png" type="image">
-    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="/css/reset.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="/js/jquery.js"></script>
     <title>我的订单</title>
+    <style type="text/css">
+        html {
+            font-size: 100px;
+        }
+
+        body,
+        a,
+        ul,
+        li {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-decoration: none;
+        }
+
+        body {
+            /*width: 100%;*/
+            background: rgb(240, 240, 240);
+            font-family: PingFangSC-Regular;
+        }
+
+        div {
+            box-sizing: border-box;
+        }
+
+        .header {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .head {
+            font-size: 0.16rem;
+            height: 0.44rem;
+            background: #26A69A;
+            color: white;
+            text-align: center;
+            line-height: 0.44rem;
+        }
+
+        .head>a {
+            color: white;
+            float: left;
+            margin-left: 0.12rem;
+        }
+
+        .nav {
+            height: 0.44rem;
+            background: white;
+            font-size: 0.12rem;
+            line-height: 0.44rem;
+            padding-left: 0.28rem;
+        }
+
+        .nav>ul>a {
+            float: left;
+            margin: 0px 0.15rem;
+        }
+
+        .content {
+            margin-top: 50px;
+        }
+
+        .cell1 {
+            height: 1.98rem;
+            background: white;
+            font-size: 0.15rem;
+            margin-top: 0.09rem;
+        }
+
+        .title {
+            height: 0.3rem;
+            border-bottom: 1px solid #D8D8D8;
+            padding-left: 0.12rem;
+            padding-right: 0.12rem;
+        }
+
+        .title .span0 {
+            float: right;
+            font-size: 0.15rem;
+            margin-top: 3px
+        }
+
+        .title .span1 {
+            float: left;
+            font-size: 0.15rem;
+            margin-top: 3px
+        }
+
+        .cell {
+            height: 1.25rem;
+            background: white;
+            border-bottom: 1px solid #D8D8D8;
+            padding: 0.12rem 0;
+        }
+
+        .cell>.img {
+            width: 1.27rem;
+            height: 0.72rem;
+            float: left;
+            margin-left: 0.16rem;
+        }
+
+        /*.content{
+overflow: scroll;
+}*/
+
+        .cell>.text {
+            width: 2.12rem;
+            margin-right: 0.12rem;
+            float: right
+        }
+
+        .cell>.text>span {
+            display: block;
+        }
+
+        .cell .intro {
+            font-size: 0.1rem;
+            color: #A4A3A3;
+        }
+
+        .cell .spay {
+            font-size: 0.09rem;
+            color: #A4A3A3;
+        }
+
+        .cell .pay {
+            color: black;
+            font-size: 0.1rem;
+        }
+
+        .footer {
+            height: 0.32rem;
+            padding: 0.1rem;
+            text-align: center;
+        }
+
+        .footer>.btn {
+            float: right;
+        }
+
+        .option {
+            width: 0.65rem;
+            border: 1px solid #26A69A;
+            border-radius: 2px;
+            float: left;
+            margin-left: 0.07rem;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="header">
-        <a href="../usercenter" class="left"></a>
-        待发货
-    </div>
-    <div style="height: 40px;"></div>
-    <!-- <div class="panel panel-default">
-    <div class="panel-heading">面板标题</div>
-    <div class="panel-body">
-        <p>这是一个基本的面板内容。这是一个基本的面板内容。
-            这是一个基本的面板内容。这是一个基本的面板内容。
-            这是一个基本的面板内容。这是一个基本的面板内容。
-            这是一个基本的面板内容。这是一个基本的面板内容。
-        </p>
-    </div> -->
-    <div>
-        <% for(let ind of indent) { %>
-        <ul class="list-group">
-            <% if (ind.deliver == "商家发货"){ %>
-                <center>
-                    <li class="list-group-item" style="color: #F47C02;font-size:20px;"><%= ind.productName %></li>
-                </center>
-                <li class="list-group-item"><img src="<%= ind.img_link %>"></li>
-                <li class="list-group-item">￥<%= ind.price %></li>
-                <li class="list-group-item">用户信息&nbsp;&nbsp;&nbsp;<%= str[0] %>：<%= str[1]%>&nbsp;&nbsp;&nbsp;<%= str[2] %>
-                </li>
-                <li class="list-group-item"><a href="#" style="color: #F47C02;font-size:15px;">已发货</a>
-                </li>
-            <% }else{ %>
-                <center>
-                    <li class="list-group-item" style="color: #F47C02;font-size:20px;"><%= ind.productName %></li>
-                </center>
-                <li class="list-group-item"><img src="<%= ind.img_link %>"></li>
-                <li class="list-group-item">￥<%= ind.price %></li>
-                <li class="list-group-item">用户信息&nbsp;&nbsp;&nbsp;<%= str[0] %>：<%= str[1]%>&nbsp;&nbsp;&nbsp;<%= str[2] %>
-                </li>
-                <li class="list-group-item"><a href="/indent/<%= ind.id %>" style="color: #F47C02;font-size:15px;">发货</a>
-                </li>
+    <div class="wrap">
+        <div class="header">
+            <a href="../usercenter" class="left"></a>
+            待发货
+        </div>
+        <div class="content">
+            <% for(let ind of indent) { %>
+                <input type="text" id="buynum" hidden="true" value="<%= ind.buynum %>">
+                <input type="text" hidden="true" id="suretuikuan" value="<%= address %>">
+                <input type="text" hidden="true" id="sellers" value="<%= ind.sellers %>">
+                <% if (ind.deliver == "商家发货" && ind.tuikuan=='申请退款'){ %>
+                <div class="cell1">
+                    <div class="title">
+                        <span class="span1">新兴贸易</span>
+                        <span class="span0">已发货,用户申请退款</span>
+                    </div>
+                    <div class="cell">
+                        <div class="text">
+                            <div class="brand">
+                                <%= ind.productName %> ￥<%= ind.price*ind.buynum %>
+                            </div>
+                            <span class="pay">实际付款:￥<%= ind.price*ind.buynum %></span>
+                            <div class="brand">
+                                <%= str[0] %>：<%= str[1] %>：<%= str[2] %>
+                            </div>
+                            <div class="brand" id="check">
+                                退款原因:<%= ind.yuanyin %>
+                            </div>
+                        </div>
+                        <div class="img"><img src="<%= ind.img_link %>" style="width: 90px;"></div>
+                    </div>
+                    <div class="footer">
+                        <div class="btn">
+                            <div class="option">
+                                <!-- <a href="#" id="soldout" data-id="<%=ind.id%>:<%= ind.price %>" class="suretuikuan">同意退款</a> -->
+                            </div>
+                            <button><a href="/suretuikuan/<%= ind.indentid %>" id="sure_tuikuan">同意退款</a></button>
+                        </div>
+                    </div>
+                </div>
+                <% }else if(ind.tuikuan=='申请退款'){ %>
+                    <div class="cell1">
+                        <div class="title">
+                            <span class="span1">新兴贸易</span>
+                            <span class="span0">未发货,用户申请退款</span>
+                        </div>
+                        <div class="cell">
+                            <div class="text">
+                                <div class="brand">
+                                    <%= ind.productName %> ￥<%= ind.price*ind.buynum %>
+                                </div>
+                                <span class="pay">实际付款:￥<%= ind.price*ind.buynum %></span>
+                                <div class="brand">
+                                    <%= str[0] %>：<%= str[1] %>：<%= str[2] %>
+                                </div>
+                                <div class="brand" id="check">
+                                    退款原因:<%= ind.yuanyin %>
+                                </div>
+                            </div>
+                            <div class="img"><img src="<%= ind.img_link %>" style="width: 90px;"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="btn">
+                                <!-- <div class="option">
+                                    <a href="#" id="soldout" data-id="<%=ind.id%>:<%= ind.price %>" class="suretuikuan">同意退款</a>
+                                </div> -->
+                                <button><a href="/suretuikuan/<%= ind.indentid %>" id="sure_tuikuan">同意退款</a></button>
+                                <div class="option">
+                                    <a href="/indent/<%= ind.indentid%>">发货</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }else if(ind.deliver=='待发货'){ %>
+                    <div class="cell1">
+                        <div class="title">
+                            <span class="span1">新兴贸易</span>
+                            <span class="span0">未发货</span>
+                        </div>
+                        <div class="cell">
+                            <div class="text">
+                                <div class="brand">
+                                    <%= ind.productName %> ￥<%= ind.price*ind.buynum %>
+                                </div>
+                                <span class="pay">实际付款:￥<%= ind.price*ind.buynum %></span>
+                                <div class="brand">
+                                    <%= str[0] %>：<%= str[1] %>：<%= str[2] %>
+                                </div>
+                            </div>
+                            <div class="img"><img src="<%= ind.img_link %>" style="width: 90px;"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="btn">
+                                <div class="option">
+                                    <a href="/indent/<%= ind.indentid%>">发货</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }else if(ind.deliver=='商家发货'){ %>
+                    <div class="cell1">
+                        <div class="title">
+                            <span class="span1">新兴贸易</span>
+                            <span class="span0">已发货</span>
+                        </div>
+                        <div class="cell">
+                            <div class="text">
+                                <div class="brand">
+                                    <%= ind.productName %> ￥<%= ind.price*ind.buynum %>
+                                </div>
+                                <span class="pay">实际付款:￥<%= ind.price*ind.buynum %></span>
+                                <div class="brand">
+                                    <%= str[0] %>：<%= str[1] %>：<%= str[2] %>
+                                </div>
+                            </div>
+                            <div class="img"><img src="<%= ind.img_link %>" style="width: 90px;"></div>
+                        </div>
+                        <div class="footer">
+                            <div class="btn">
+                                <!-- <div class="option">
+                                    <a href="/indent/<%= ind.indentid%>">发货</a>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                <% } %>
             <% } %>
-        </ul>
-        <% } %>
+        </div>
     </div>
-    </div>
+
+    <script>
+        autoSize();
+        window.onresize = function () {
+            autoSize();
+        }
+
+        function autoSize() {
+            // 获取当前浏览器的视窗宽度，放在w中
+            var w = document.documentElement.clientWidth;
+            // 计算实际html font-size大小
+            var size = w * 100 / 375;
+            // 获取当前页面中的html标签
+            var html = document.querySelector('html');
+            // 设置字体大小样式
+            html.style.fontSize = size + 'px';
+        }
+
+    </script>
+    <!-- <script type="text/javascript" src="/js/web3.min.js"></script>
+    <script type="text/javascript" src="/js/web3/web3.js"></script> -->
 </body>
 
 </html>
